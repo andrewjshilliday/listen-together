@@ -1,0 +1,40 @@
+:root {
+  --background: rgba(255, 255, 255, 1);
+  --background-lighter: rgba(255, 255, 255, 1);
+  --background-darker: rgba(250, 250, 250, 1);
+  --on-background: #000000;
+  --background-opacity: rgba(255, 255, 255, 0);
+  --primary: #f40000;
+  --on-primary: #fff;
+  --secondary: #fafafa;
+  --on-secondary: #000000;
+  --scrollbar: #ff6666;
+  --accent: lightgray;
+  --light: #f2f2f2;
+  --dark: rgba(51, 51, 51, 1);
+}
+
+.view {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+  padding: 0 25px;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.rounded {
+  border-radius: 0.5em;
+}
+
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* display: inline-block; */
+  max-width: 100%;
+}

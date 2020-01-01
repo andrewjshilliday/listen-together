@@ -1,0 +1,49 @@
+.media-item-group-container {
+  display: flex;
+  width: 100%;
+}
+
+.left, .right {
+  display: inline-block;
+  width: 35px;
+
+  &::before {
+    content: '';
+    width: 25px;
+    height: 56px;
+    position: relative;
+    top: 30%;
+    float: left;
+    background-color: black;
+    -webkit-mask: url(../../../assets/images/arrow.svg) no-repeat center;
+    mask: url(../../../assets/images/arrow.svg) no-repeat center;
+  }
+
+  &:hover {
+    cursor: pointer;
+    div { background-color: red; }
+  }
+}
+
+.right {
+  &::before {
+    float: right;
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+.media-item-group {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  width: calc(100% - 10px);
+  margin: 0;
+  padding-bottom: 15px;
+}
