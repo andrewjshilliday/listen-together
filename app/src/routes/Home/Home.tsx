@@ -16,9 +16,8 @@ const Home: React.FC = () => {
   };
 
   const joinRoom = () => {
-    console.log('home', roomId);
     roomProvider.joinRoom(roomId);
-    history.push(`/room/${roomProvider.roomId}`);
+    /* history.push(`/room/${roomProvider.roomId}`); */
   }
 
   return (

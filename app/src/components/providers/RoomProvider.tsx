@@ -78,37 +78,10 @@ export const RoomProvider = (props: any) => {
     return () => { musicKitProvider.musicKit.removeEventListener(MusicKit.Events.queueItemsDidChange, queueItemsDidChange); };
   }, []);
 
-  /* useEffect(() => {
-    if (state.roomId) {
-      socket.emit('join', { name: 'test', room: state.roomId }, (error: any) => {
-        console.log(error);
-      });
-    }
-
-    return () => {
-      socket.emit('disconnect');
-      socket.off('');
-    }
-  }, [state.roomId]); */
-
-  /* useEffect(() => {
-    socket.on('message', (message: any) => {
-      console.log(message);
-    });
-  }, []); */
-
   const queueItemsDidChange = () => {
     console.log('queueItemsDidChange');
     setState({playlist: musicKitProvider.musicKit.player.queue.items});
   };
-
-  /* const initState: RoomProviderState = {
-    playlist: [],
-    addToPlaylist: addToPlaylist,
-    setRoomId: setRoomId
-  }; */
-
-  /* const [state, setState] = useReducer(reducer, {} as RoomProviderState); */
 
   return (
     <RoomContext.Provider value={state}>
