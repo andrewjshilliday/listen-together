@@ -1,20 +1,24 @@
 import React, { createContext, useContext, useState, useEffect, useReducer } from 'react'
 import { useMusicKit } from '../providers';
+import io from 'socket.io-client';
 declare const MusicKit: any;
 
 interface RoomProviderState {
   roomId?: string,
   playlist: any[],
   addToPlaylist: (item: any) => void,
-  setRoomId: (id: string) => void
+  createRoom: () => void,
+  joinRoom: (id: string) => void
 }
 
 const RoomContext = createContext({} as RoomProviderState);
+let socket: SocketIOClient.Socket;
 
 const initState: RoomProviderState = {
   playlist: [],
   addToPlaylist: () => {},
-  setRoomId: () => {}
+  createRoom: () => {},
+  joinRoom: () => {}
 };
 
 const reducer = (prevState: any, updatedProperties: any) => ({
@@ -26,9 +30,30 @@ export const RoomProvider = (props: any) => {
 
   const musicKitProvider = useMusicKit();
   const [state, setState] = useReducer(reducer, initState);
+  const ENDPOINT = 'localhost:8002';
 
   const setRoomId = (id: string) => {
     setState({roomId: id});
+  };
+
+  const createRoom = () => {
+    socket.emit('create', { name: 'test' }, ({ roomId, error }: any) => {
+      if (error) {
+        console.log(error);
+        return;
+      }
+      setState({roomId: roomId});
+    })
+  };
+
+  const joinRoom = (id: string) => {
+    socket.emit('join', { name: 'test1', roomId: id }, ({ roomId, error }: any) => {
+      if (error) {
+        console.log(error);
+        return;
+      }
+      setState({roomId: roomId});
+    });
   }
 
   const addToPlaylist = async (item: any) => {
@@ -44,12 +69,33 @@ export const RoomProvider = (props: any) => {
     setState({
       playlist: [],
       addToPlaylist: addToPlaylist,
-      setRoomId: setRoomId
+      createRoom: createRoom,
+      joinRoom: joinRoom
     });
 
+    socket = io(ENDPOINT);
     musicKitProvider.musicKit.addEventListener(MusicKit.Events.queueItemsDidChange, queueItemsDidChange);
     return () => { musicKitProvider.musicKit.removeEventListener(MusicKit.Events.queueItemsDidChange, queueItemsDidChange); };
   }, []);
+
+  /* useEffect(() => {
+    if (state.roomId) {
+      socket.emit('join', { name: 'test', room: state.roomId }, (error: any) => {
+        console.log(error);
+      });
+    }
+
+    return () => {
+      socket.emit('disconnect');
+      socket.off('');
+    }
+  }, [state.roomId]); */
+
+  /* useEffect(() => {
+    socket.on('message', (message: any) => {
+      console.log(message);
+    });
+  }, []); */
 
   const queueItemsDidChange = () => {
     console.log('queueItemsDidChange');

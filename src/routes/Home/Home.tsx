@@ -1,24 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import { useRoom } from '../../components/providers';
 import './Home.scss';
 
 const Home: React.FC = () => {
+  const [name, setName] = useState('');
+  const [roomId, setRoomId] = useState('');
   const history = useHistory();
-  const room = useRoom();
+  const roomProvider = useRoom();
 
   const createRoom = () => {
-    const roomId = 'DJGFE';
-    if (!room.roomId) {
-      room.setRoomId(roomId);
-    }
-    history.push(`/room/${roomId}`);
+    roomProvider.createRoom();
+    /* history.push(`/room/${roomProvider.roomId}`); */
   };
+
+  const joinRoom = () => {
+    console.log('home', roomId);
+    roomProvider.joinRoom(roomId);
+    history.push(`/room/${roomProvider.roomId}`);
+  }
 
   return (
     <div className="home view">
       <Button className="create-button" variant="contained" color="primary" onClick={() => createRoom()}>Create a Room</Button>
+      <Button className="create-button" variant="contained" color="primary" onClick={() => joinRoom()}>Join a Room</Button>
+      <input type="text" placeholder="name" onChange={(event: any) => { setName(event.target.value); console.log(event.target.value); }}></input>
+      <input type="text" placeholder="room" onChange={(event: any) => { setRoomId(event.target.value); console.log(event.target.value); }}></input>
     </div>
   );
 }
