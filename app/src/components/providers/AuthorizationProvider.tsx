@@ -3,6 +3,10 @@ declare const MusicKit: any;
 
 interface AuthorizationProviderState {
   authorized: boolean,
+  actions: IActions
+}
+
+interface IActions {
   signIn: () => void,
   signOut: () => void
 }
@@ -27,13 +31,13 @@ export const AuthorizationProvider = (props: any) => {
     setState({...state, authorized: authorized});
   };
 
-  const value: AuthorizationProviderState = {
+  const [state, setState] = useState({
     authorized: MusicKit.getInstance().isAuthorized,
-    signIn: signIn,
-    signOut: signOut
-  };
-
-  const [state, setState] = useState(value);
+    actions: {
+      signIn: signIn,
+      signOut: signOut
+    }
+  });
 
   return (
     <AuthorizationContext.Provider value={state}>

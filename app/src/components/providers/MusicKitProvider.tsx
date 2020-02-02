@@ -1,16 +1,23 @@
 import React, { ReactNode, createContext, useContext } from 'react'
 import { Secrets } from '../../secrets';
+import { WebSocketContext } from './WebSocketProvider';
 declare const MusicKit: any;
 
 interface MusicKitProviderState {
-  musicKit: any,
+  musicKit: MusicKit.MusicKitInstance,
   isPlaying: boolean,
   playbackLoading: boolean,
-  nowPlayingItem?: any,
+  nowPlayingItem?: MusicKit.MediaItem,
   currentPlaybackTime: number,
   currentPlaybackTimeRemaining: number,
+  actions: IActions
+}
+
+interface IActions {
   play: () => void,
   pause: () => void,
+  next: () => void,
+  previous: () => void,
   setVolume: (v: number | number[]) => void
 }
 
@@ -21,6 +28,8 @@ interface MusicKitProviderProps {
 const MusicKitContext = createContext({} as MusicKitProviderState);
 
 export class MusicKitProvider extends React.Component<MusicKitProviderProps, MusicKitProviderState> {
+
+  static contextType = WebSocketContext;
 
   constructor(props: MusicKitProviderProps) {
     super(props);
@@ -40,17 +49,20 @@ export class MusicKitProvider extends React.Component<MusicKitProviderProps, Mus
       playbackLoading: false,
       currentPlaybackTime: 0,
       currentPlaybackTimeRemaining: 0,
-      play: this.play,
-      pause: this.pause,
-      setVolume: this.setVolume
-    }
+      actions: {
+        play: this.play,
+        pause: this.pause,
+        next: this.next,
+        previous: this.previous,
+        setVolume: this.setVolume
+      }
+    };
   }
 
   componentDidMount = () => {
-    this.state.musicKit.addEventListener(MusicKit.Events.mediaItemDidChange, this.mediaItemDidChange);
-    this.state.musicKit.addEventListener(MusicKit.Events.playbackStateDidChange, this.playbackStateDidChange);
-    /* this.state.musicKit.addEventListener(MusicKit.Events.queueItemsDidChange, this.queueItemsDidChange); */
-    this.state.musicKit.addEventListener(MusicKit.Events.playbackTimeDidChange, this.playbackTimeDidChange);
+    this.state.musicKit.addEventListener('mediaItemDidChange', this.mediaItemDidChange);
+    this.state.musicKit.addEventListener('playbackStateDidChange', this.playbackStateDidChange);
+    this.state.musicKit.addEventListener('playbackTimeDidChange', this.playbackTimeDidChange);
 
     const volume = localStorage.getItem('volume');
     if (!volume) {
@@ -58,13 +70,32 @@ export class MusicKitProvider extends React.Component<MusicKitProviderProps, Mus
     } else {
       this.setVolume(+volume);
     }
+
+    this.context.socket.on('action', ({ action, data }: any) => {
+      switch (action) {
+        case 'play':
+          this.state.musicKit.player.play();
+          break;
+        case 'pause':
+          this.state.musicKit.player.pause();
+          break;
+        case 'nextTrack':
+          this.state.musicKit.player.skipToNextItem();
+          break;
+        case 'previousTrack':
+          this.state.musicKit.player.skipToPreviousItem();
+          break;
+        case 'seekToTime':
+          this.state.musicKit.player.seekToTime(data);
+          break;
+      }
+    });
   }
 
   componentWillUnmount = () => {
-    this.state.musicKit.removeEventListener(MusicKit.Events.mediaItemDidChange, this.mediaItemDidChange);
-    this.state.musicKit.removeEventListener(MusicKit.Events.playbackStateDidChange, this.playbackStateDidChange);
-    /* this.state.musicKit.removeEventListener(MusicKit.Events.queueItemsDidChange, this.queueItemsDidChange); */
-    this.state.musicKit.removeEventListener(MusicKit.Events.playbackTimeDidChange, this.playbackTimeDidChange);
+    this.state.musicKit.removeEventListener('mediaItemDidChange', this.mediaItemDidChange);
+    this.state.musicKit.removeEventListener('playbackStateDidChange', this.playbackStateDidChange);
+    this.state.musicKit.removeEventListener('playbackTimeDidChange', this.playbackTimeDidChange);
   }
 
   /* shouldComponentUpdate() {
@@ -73,12 +104,26 @@ export class MusicKitProvider extends React.Component<MusicKitProviderProps, Mus
 
   play = () => {
     console.log('play');
-    this.state.musicKit.player.play();
+    this.context.actions.sendAction('play');
   };
 
   pause = () => {
     console.log('pause');
-    this.state.musicKit.player.pause();
+    this.context.actions.sendAction('pause');
+  }
+
+  next = () => {
+    console.log('next');
+    this.context.actions.sendAction('nextTrack');
+  }
+
+  previous = () => {
+    console.log('previous');
+    if (this.state.currentPlaybackTime < 10000) {
+      this.context.actions.sendAction('previousTrack');
+    } else {
+      this.context.actions.sendAction('seekToTime', 0);
+    }
   }
 
   setVolume = (volume: number | number[]) => {
@@ -91,7 +136,6 @@ export class MusicKitProvider extends React.Component<MusicKitProviderProps, Mus
 
   mediaItemDidChange = (event: any) => {
     console.log(`mediaItemDidChange`);
-    console.log(event.item);
     this.setState({
       nowPlayingItem: event.item
     });
@@ -99,7 +143,6 @@ export class MusicKitProvider extends React.Component<MusicKitProviderProps, Mus
 
   playbackStateDidChange = (event: any) => {
     console.log(`playbackStateDidChange`);
-    console.log(event.state);
     this.setState({
       isPlaying: event.state === 2,
       playbackLoading: event.state === 1 || event.state === 8
@@ -112,11 +155,6 @@ export class MusicKitProvider extends React.Component<MusicKitProviderProps, Mus
       currentPlaybackTimeRemaining: this.state.musicKit.player.currentPlaybackTimeRemaining
     });
   }
-
-  /* queueItemsDidChange = (event: any) => {
-    console.log(`queueItemsDidChange`);
-    console.log(event);
-  } */
 
   render() {
     return (

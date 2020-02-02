@@ -1,27 +1,48 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useMusicKit } from '../../providers';
-import { FormatArtwork } from '../../../services/MusicKit';
-import './QueueMediaItemView.scss';
+import { MusicKitService } from '../../../services';
+import styled from 'styled-components';
 
 interface QueueMediaItemViewProps {
-  item: any,
+  item: MusicKit.MediaItem,
   index: number
 }
 
 const QueueMediaItemView: React.FC<QueueMediaItemViewProps> = ({ item, index }) => {
   const musicKitProvider = useMusicKit();
-  console.log(item);
+  
   return (
-    <div className="queue-item">
-      <img src={FormatArtwork(item.attributes.artwork, 70)} className="img-fluid rounded" alt={item.attributes.name}/>
-      <div className={"queue-item-text " + (musicKitProvider.musicKit.player.queue.position === index && "now-playing")}>
+    <QueueItem>
+      <img src={MusicKitService.FormatArtwork(item.attributes.artwork, 70)} className="img-fluid rounded" alt={item.attributes.name}/>
+      <QueueItemText nowPlaying={musicKitProvider.musicKit.player.queue.position === index}>
         <span className="text-truncate">{item.attributes.name}</span>
         <span className="text-truncate">{item.attributes.albumName}</span>
         <span className="text-truncate">{item.attributes.artistName}</span>
-      </div>
-    </div>
+      </QueueItemText>
+    </QueueItem>
   );
 }
 
 export default QueueMediaItemView;
+
+
+const QueueItem = styled.div`
+  display: flex;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  padding: 0 15px;
+  
+  img {
+    height: 70px;
+    width: 70px;
+  }
+`;
+const QueueItemText = styled.div<{nowPlaying: boolean}>`
+  margin-left: 20px;
+  overflow: hidden;
+  span { display: block; }
+  ${props => props.nowPlaying && `
+    color: var(--primary);
+  `}
+`;

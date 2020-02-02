@@ -14,6 +14,13 @@
   --dark: rgba(51, 51, 51, 1);
 }
 
+a {
+  text-decoration: none;
+  color: var(--on-background);
+  &:visited { color: var(--on-background); }
+  &:hover { color: var(--primary); }
+}
+
 .view {
   overflow-x: hidden;
   overflow-y: scroll;
@@ -37,4 +44,9 @@
   text-overflow: ellipsis;
   /* display: inline-block; */
   max-width: 100%;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.1;
 }

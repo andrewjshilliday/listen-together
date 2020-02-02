@@ -1,39 +1,65 @@
 import React, { useState, useEffect } from 'react';
-import { MKArtist } from '../../services/MusicKitApi';
-/* import { MediaItemCardCarousel } from '../../components/common'; */
-import CircularProgress from '@material-ui/core/CircularProgress';
-import './Artist.scss';
+import { MusicKitApiService } from '../../services';
+import { Loading, MediaItemCardCarousel } from '../../components/common';
+import styled from 'styled-components';
 
 const Artist: React.FC = (props: any) => {
-  const [artist, setArtist] = useState({} as any);
-  const [loading, setLoading] = useState(true);
   const id = props.match.params.id;
+  const [loading, setLoading] = useState(true);
+  const [artist, setArtist] = useState({} as MusicKit.MediaItem);
+  const [albums, setAlbums] = useState([] as MusicKit.MediaItem[]);
+  const [playlists, setPlaylists] = useState([] as MusicKit.MediaItem[]);
 
   useEffect(() => {
     const getSearchResults = async () => {
       setLoading(true);
-      setArtist(await MKArtist(id, 'relationships'));
+      setArtist(await MusicKitApiService.Artist(id, 'albums,playlists'));
       setLoading(false);
-      const asd = await MKArtist(id);
-      console.log(asd);
     };
     getSearchResults();
   }, [id]);
 
-  if (loading) return (<div className="loading"><CircularProgress /></div>);
+  useEffect(() => {
+    const getAlbumRelationships = async () => {
+      if (artist.relationships && artist.relationships.albums) {
+        setAlbums(artist.relationships.albums.data);
+        /* setAlbums(await MusicKitApiService.Albums(artist.relationships.albums.data.map((i: MusicKit.MediauItem) => i.id))); */
+      }
+    };
+    const getPlaylistRelationships = async () => {
+      if (artist.relationships && artist.relationships.playlists) {
+        setPlaylists(artist.relationships.playlists.data);
+        /* setPlaylists(await MusicKitApiService.Playlists(artist.relationships.playlists.data.map((i: MusicKit.MediaItem) => i.id))); */
+      }
+    };
+    getAlbumRelationships();
+    getPlaylistRelationships();
+  }, [artist]);
+
+  if (loading) return (<Loading />);
   
   return (
-    <div className="artist view">
+    <ArtistContainer>
       <h1 className="text-truncate">{artist.attributes.name}</h1>
-      {/* {
-        artist.relationships && artist.relationships.albums &&
+      {
+        albums.length > 0 &&
         <>
           <h2>Albums</h2>
-          <MediaItemCardCarousel items={artist.relationships.albums.data}></MediaItemCardCarousel>
+          <MediaItemCardCarousel items={albums}></MediaItemCardCarousel>
         </>
-      } */}
-    </div>
+      }
+      {
+        playlists.length > 0 &&
+        <>
+          <h2>Playlists</h2>
+          <MediaItemCardCarousel items={playlists}></MediaItemCardCarousel>
+        </>
+      }
+    </ArtistContainer>
   );
 }
 
 export default Artist;
+
+
+const ArtistContainer = styled.div``;
