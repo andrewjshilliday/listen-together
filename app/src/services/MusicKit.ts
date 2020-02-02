@@ -1,6 +1,10 @@
 declare const MusicKit: any;
 
-export function FormatArtwork(artwork: any, size: number): string {
+interface MusicKitService {
+  FormatArtwork: (artwork: MusicKit.Artwork, size: number) => string
+}
+
+const FormatArtwork = (artwork: MusicKit.Artwork, size: number): string => {
   if (typeof artwork === 'string' || artwork instanceof String) {
     artwork = GenerateArtwork(String(artwork));
   }
@@ -12,7 +16,7 @@ export function FormatArtwork(artwork: any, size: number): string {
   return MusicKit.formatArtworkURL(artwork, size, size);
 }
 
-function GenerateArtwork(url: string) {
+const GenerateArtwork = (url: string): MusicKit.Artwork => {
   const artwork = {
     url: url,
     bgColor: '000000',
@@ -25,4 +29,8 @@ function GenerateArtwork(url: string) {
   };
 
   return artwork;
+}
+
+export const MusicKitService: MusicKitService = {
+  FormatArtwork
 }
