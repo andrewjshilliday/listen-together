@@ -2,7 +2,7 @@ const rooms = [];
 
 const createRoom = () => {
   const roomId = generateRoomId();
-  const room = { id: roomId};
+  const room = { id: roomId, queue: [], currentPosition: 0 };
   rooms.push(room);
 
   return { room };
@@ -17,7 +17,7 @@ const removeRoom = (id) => {
 }
 
 const getRoom = (id) => {
-  return { room: rooms.find((room) => room.id === id) };
+  return rooms.find((room) => room.id === id.toUpperCase());
 }
 
 const generateRoomId = () => {

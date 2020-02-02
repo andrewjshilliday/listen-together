@@ -23,34 +23,41 @@ io.on('connect', (socket) => {
     const { user, error: userError } = addUser({ id: socket.id, name, room: room.id });
     if (userError) return callback({ error: userError });
 
+    console.log('room created', room.id);
+
     socket.join(user.room);
 
     callback({ roomId: room.id });
   });
 
   socket.on('join', ({ name, roomId }, callback) => {
-    const { room, error: roomError } = getRoom(roomId);
-    if (roomError) return callback({ error: roomError });
+    const room = getRoom(roomId);
+    if (!room) return callback({ error: 'room not found' });
 
     const { user, error: userError } = addUser({ id: socket.id, name, room: room.id });
     if (userError) return callback({ error: userError });
 
-    socket.emit('message', { user: 'system', text: `${user.name}, welcome to room ${user.room}.`});
+    // socket.emit('message', { user: name, queue: room.queue, currentPosition: room.currentPosition});
     socket.broadcast.to(user.room).emit('message', { user: 'system', text: `${user.name} has joined!` });
 
     socket.join(user.room);
 
     io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
 
-    callback({ roomId: room.id });
+    callback({ roomId: room.id, playlist: room.queue, currentPosition: room.currentPosition });
   });
 
-  socket.on('sendAction', (action, callback) => {
+  socket.on('sendAction', ({ action, data }, callback) => {
     const user = getUser(socket.id);
 
-    io.to(user.room).emit('action', { user: user.name, action: action });
+    if (action === 'addToPlaylist' && data && data.id) {
+      const room = getRoom(user.room);
+      room.queue.push(data);
+    }
 
-    callback();
+    io.to(user.room).emit('action', { user: user.name, action: action, data: data, currentPosition: user.room.currentPosition });
+
+    /* callback(); */
   });
 
   socket.on('sendMessage', (message, callback) => {
@@ -65,10 +72,32 @@ io.on('connect', (socket) => {
     const user = removeUser(socket.id);
 
     if (user) {
+      const usersInRoom = getUsersInRoom(user.room);
+
       io.to(user.room).emit('message', { user: 'system', text: `${user.name} has left.` });
-      io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room)});
+      io.to(user.room).emit('roomData', { room: user.room, users: usersInRoom});
+
+      if (!usersInRoom || usersInRoom.length === 0) {
+        const room = removeRoom(user.room.id);
+        console.log('room removed', user.room.id);
+      }
     }
   });
+
+  socket.on('playbackInfo', ({ action, username, data }, callback) => {
+    const user = getUser(socket.id);
+
+    if (action === 'request') {
+      io.to(user.room).emit('playbackInfo', { action: 'request', username: username });
+    }
+    if (action === 'send') {
+      io.to(user.room).emit('playbackInfo', { action: 'send', username: username, data: { queuePosition: data.queuePosition, playbackTime: data.playbackTime } });
+    }
+
+    if (callback) {
+      callback();
+    }
+  })
 });
 
 server.listen(process.env.PORT || 8002, () => console.log(`Server has started.`));
