@@ -43,15 +43,16 @@ const Home: React.FC = (props: any) => {
 
   return (
     <HomeContainer>
+      <Title>ListenTogether</Title>
+      <ListenTogetherImage src={musicSvg} />
       <CSSTransition in={!authProvider.authorized} classNames="fade" timeout={300} unmountOnExit>
         <FadeInContainer>
-          <Button variant="contained" color="primary" onClick={() => authProvider.actions.signIn()}>Sign In</Button>
+            <h4>To use this application, connect to your Apple Music account</h4>
+          <Button variant="outlined" color="primary" onClick={() => authProvider.actions.signIn()}>Connect to Apple Music</Button>
         </FadeInContainer>
       </CSSTransition>
       <CSSTransition in={authProvider.authorized} classNames="fade" timeout={300} unmountOnExit>
         <FadeInContainer>
-          <Title>ListenTogether</Title>
-          <ListenTogetherImage src={musicSvg} />
           <UsernameContainer disabled={roomProvider.username != null}>
             <h2>First, Pick a Username</h2>
             <UsernameInput label="Enter Username" onChange={(e) => setName(e.target.value)}
@@ -92,18 +93,20 @@ const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
+  justify-content: center;
   height: 100vh;
   background: #99ccff linear-gradient(315deg, #99ccff, #e6f2ff);
   background-size: 100% 100%;
   overflow: auto;
 
-  h1, h2, h3 { margin-bottom: 10px; }
+  h1, h2, h3, h4 { margin-bottom: 10px; }
 `;
 const FadeInContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: auto;
+  /* margin: auto; */
+  height: 340px;
   transition: opacity 300ms ease-in;
   &.fade-enter { opacity: 0; }
   &.fade-enter-active { opacity: 1; }
@@ -116,7 +119,7 @@ const Title = styled.h1`
 const ListenTogetherImage = styled.img`
   height: 200px;
   width: 300px;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
 `;
 const UsernameContainer = styled.div<{disabled: boolean}>`
   opacity: 1;

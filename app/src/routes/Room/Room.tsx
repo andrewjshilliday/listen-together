@@ -8,7 +8,7 @@ const Room: React.FC = (props: any) => {
 
   useEffect(() => {
     if (!roomProvider.roomId) {
-      /* props.history.push('/'); */
+      props.history.push('/');
     }
   }, [roomProvider.roomId]);
 

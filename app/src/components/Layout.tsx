@@ -5,8 +5,9 @@ import styled from 'styled-components';
 
 const Layout: React.FC = (props: any) => {
   const roomProvider = useRoom();
+
   if (!roomProvider.roomId) {
-  return (<>{props.children}</>);
+    return (<>{props.children}</>);
   }
   return (
     <>

@@ -46,9 +46,9 @@ const Search: React.FC = (props: any) => {
   return (
     <SearchContainer>
       <h1>Search - {searchQuery}</h1>
-      {artists.length && <MediaItemCardCarousel items={artists} title='Artists'></MediaItemCardCarousel>}
-      {albums.length && <MediaItemCardCarousel items={albums} title='Albums'></MediaItemCardCarousel>}
-      {playlists.length && <MediaItemCardCarousel items={playlists} title='Playlists'></MediaItemCardCarousel>}
+      {artists.length !== 0 && <MediaItemCardCarousel items={artists} title='Artists'></MediaItemCardCarousel>}
+      {albums.length !== 0 && <MediaItemCardCarousel items={albums} title='Albums'></MediaItemCardCarousel>}
+      {playlists.length !== 0 && <MediaItemCardCarousel items={playlists} title='Playlists'></MediaItemCardCarousel>}
     </SearchContainer>
   );
 }

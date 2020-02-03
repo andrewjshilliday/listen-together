@@ -37,7 +37,6 @@ const Artist: React.FC = (props: any) => {
   }, [artist]);
 
   if (loading) return (<Loading />);
-  
   return (
     <ArtistContainer>
       <h1 className="text-truncate">{artist.attributes.name}</h1>
