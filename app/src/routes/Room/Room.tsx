@@ -10,6 +10,7 @@ const Room: React.FC = (props: any) => {
     if (!roomProvider.roomId) {
       props.history.push('/');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [roomProvider.roomId]);
 
   useEffect(() => {
@@ -17,16 +18,30 @@ const Room: React.FC = (props: any) => {
   }, [roomProvider.playlist]);
   
   return (
-    <RoomContainer>
-      <h1>Room {props.match.params.id} User {roomProvider.username}</h1>
-      {roomProvider.playlist.map((item: MusicKit.MediaItem, index: number) => (
-        <QueueMediaItemView key={item.id} item={item} index={index}></QueueMediaItemView>
-      ))}
-    </RoomContainer>
+    <>
+      <Header>Room {props.match.params.id} User {roomProvider.username}</Header>
+      <RoomContainer>
+        <QueueContainer>
+          {roomProvider.playlist.map((item: MusicKit.MediaItem, index: number) => (
+            <QueueMediaItemView key={item.id} item={item} index={index}></QueueMediaItemView>
+          ))}
+        </QueueContainer>
+        <ChatContainer></ChatContainer>
+      </RoomContainer>
+    </>
   );
 }
 
 export default Room;
 
 
-const RoomContainer = styled.div``;
+const Header = styled.h1``;
+const RoomContainer = styled.div`
+  display: flex;
+`;
+const QueueContainer = styled.div`
+  width: 60%;
+`;
+const ChatContainer = styled.div`
+  width: 40%;
+`;

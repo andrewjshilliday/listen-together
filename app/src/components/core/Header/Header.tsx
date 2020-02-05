@@ -28,7 +28,6 @@ const Header: React.FC = (props: any) => {
     authButton = <Button variant="contained" color="primary" onClick={() => signOut()}>Sign Out</Button>;
     searchField = 
       <TextField
-        id="standard-basic"
         label="Search"
         onChange={(e) => setSearchQuery(e.target.value)}
         onKeyPress={(e) => {

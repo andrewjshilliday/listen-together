@@ -8,6 +8,7 @@ export interface WebSocketProviderState {
 
 interface IActions {
   sendAction: (action: string, data?: any) => void
+  sendMessage: (message: string) => void
 }
 
 export const WebSocketContext = createContext({} as WebSocketProviderState);
@@ -18,12 +19,19 @@ export const WebSocketProvider = (props: any) => {
     state.socket.emit('sendAction', { action, data }, ({ error }: any) => {
       console.log(error);
     });
-  }
+  };
+
+  const sendMessage = (message: string) => {
+    state.socket.emit('sendMessage', { message }, ({ error }: any) => {
+      console.log(error);
+    });
+  };
 
   const [state] = useState({ 
     socket: io('localhost:8002'),
     actions: {
-      sendAction: sendAction
+      sendAction: sendAction,
+      sendMessage: sendMessage
     }
   });
 

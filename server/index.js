@@ -16,6 +16,7 @@ app.use(cors());
 app.use(router);
 
 io.on('connect', (socket) => {
+
   socket.on('create', ({ name }, callback) => {
     const { room, error: roomError } = createRoom();
     if (roomError) return callback({ error: roomError });
@@ -31,13 +32,14 @@ io.on('connect', (socket) => {
   });
 
   socket.on('join', ({ name, roomId }, callback) => {
+    if (!name) return callback({ error: 'no username supplied' });
+    if (!roomId) return callback({ error: 'no roomId supplied' });
     const room = getRoom(roomId);
     if (!room) return callback({ error: 'room not found' });
 
     const { user, error: userError } = addUser({ id: socket.id, name, room: room.id });
     if (userError) return callback({ error: userError });
 
-    // socket.emit('message', { user: name, queue: room.queue, currentPosition: room.currentPosition});
     socket.broadcast.to(user.room).emit('message', { user: 'system', text: `${user.name} has joined!` });
 
     socket.join(user.room);
@@ -60,12 +62,12 @@ io.on('connect', (socket) => {
     /* callback(); */
   });
 
-  socket.on('sendMessage', (message, callback) => {
+  socket.on('sendMessage', ({ message }, callback) => {
     const user = getUser(socket.id);
 
     io.to(user.room).emit('message', { user: user.name, text: message });
 
-    callback();
+    /* callback(); */
   });
 
   socket.on('disconnect', () => {
@@ -97,7 +99,8 @@ io.on('connect', (socket) => {
     if (callback) {
       callback();
     }
-  })
+  });
+
 });
 
 server.listen(process.env.PORT || 8002, () => console.log(`Server has started.`));
