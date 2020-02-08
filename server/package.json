@@ -10,6 +10,7 @@
     "debug": "^2.6.9",
     "dot-prop": "^4.2.0",
     "engine.io-parser": "^2.2.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "glob-parent": "^5.1.0",
     "global-dirs": "^0.1.1",
@@ -45,7 +46,6 @@
     "minimist": "^1.2.0",
     "ms": "^2.0.0",
     "negotiator": "^0.6.2",
-    "nodemon": "^2.0.2",
     "nopt": "^1.0.10",
     "normalize-path": "^3.0.0",
     "object-component": "^0.0.3",
@@ -66,11 +66,22 @@
     "semver-diff": "^2.1.0",
     "socket.io": "^2.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.2",
+    "@types/node": "^13.7.0",
+    "@types/socket.io": "^2.1.4",
+    "eslint": "^6.8.0",
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  },
   "scripts": {
-    "start": "nodemon index.js",
-    "debug": "nodemon --inspect index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "ts-node ./src/index.ts",
+    "start:watch": "nodemon",
+    "debug": "nodemon --inspect",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
