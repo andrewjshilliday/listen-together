@@ -76,7 +76,7 @@ io.on('connect', (socket) => {
     io.to(user.room.id).emit('action', { user: user.name, action: action, data: data, currentQueuePosition: user.room.currentQueuePosition });
 
     if (callback) {
-      callback();
+      callback({});
     }
   });
 
@@ -86,7 +86,7 @@ io.on('connect', (socket) => {
     io.to(user.room.id).emit('message', { user: user.name, text: message });
 
     if (callback) {
-      callback();
+      callback({});
     }
   });
 
@@ -114,7 +114,7 @@ io.on('connect', (socket) => {
     }
 
     if (callback) {
-      callback();
+      callback({});
     }
   });
 
