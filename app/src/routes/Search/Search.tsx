@@ -21,7 +21,6 @@ const Search: React.FC = (props: any) => {
   }, [searchQuery]);
 
   useEffect(() => {
-    console.log(searchResults);
     const getArtistRelationships = () => {
       if (!searchResults.artists) { return }
       setArtists(searchResults.artists.data);

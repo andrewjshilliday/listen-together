@@ -17,17 +17,22 @@ export const WebSocketProvider = (props: any) => {
 
   const sendAction = (action: string, data?: any) => {
     state.socket.emit('sendAction', { action, data }, ({ error }: any) => {
-      console.log(error);
+      if (error) {
+        console.log(error);
+      }
     });
   };
 
   const sendMessage = (message: string) => {
     state.socket.emit('sendMessage', { message }, ({ error }: any) => {
-      console.log(error);
+      if (error) {
+        console.log(error);
+      }
     });
   };
 
   const [state] = useState({ 
+    // socket: io('https://listen-together-server.herokuapp.com/'),
     socket: io('localhost:8002'),
     actions: {
       sendAction: sendAction,

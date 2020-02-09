@@ -58,6 +58,7 @@ export const ChatProvider = (props: any) => {
     webSocketProvider.socket.on('message', (message: any) => {
       setState({ messages: [...stateRef.current.messages, message]});
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

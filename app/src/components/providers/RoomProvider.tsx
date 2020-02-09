@@ -135,8 +135,6 @@ export const RoomProvider = (props: any) => {
           }, data.playbackTime * 1000);
           const countdown = setInterval(() => {
             setState({ playbackCountdown: stateRef.current.playbackCountdown! - 1 });
-            console.log(stateRef.current.playbackCountdown);
-
             if (stateRef.current.playbackCountdown! <= 0) {
               clearInterval(countdown);
             }

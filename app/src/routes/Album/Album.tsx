@@ -49,7 +49,6 @@ const Album: React.FC = (props: any) => {
     if (album.relationships?.artists) {
       MusicKitApiService.Artist(album.relationships.artists.data[0].id, 'albums').then(res => {
         setArtistAlbums(res.relationships.albums.data);
-        console.log(res);
       })
     }
 

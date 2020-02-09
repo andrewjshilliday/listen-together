@@ -11,8 +11,8 @@ const ChatBox: React.FC = (props: any) => {
   const [message, setMessage] = useState('');
 
   const sendMessage = () => {
-    console.log(message);
     chatProvider.actions.sendMessage(message);
+    setMessage('');
   }
 
   return (
@@ -21,7 +21,7 @@ const ChatBox: React.FC = (props: any) => {
         {chatProvider.messages.map((message, i) => <Message key={i} message={message} name={roomProvider.username ?? ''}/>)}
       </MessagesContainer>
       <InputContainer>
-        <TextField label="Type a message" onChange={(e) => setMessage(e.target.value)}
+        <TextField label="Type a message" value={message} onChange={(e) => setMessage(e.target.value)}
           onKeyPress={(e) => {
             if (e.key === 'Enter') {
               e.preventDefault();

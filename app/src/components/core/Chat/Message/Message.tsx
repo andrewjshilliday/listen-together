@@ -1,6 +1,4 @@
 import React from 'react';
-import { useChat } from '../../../providers';
-import { TextField } from '@material-ui/core';
 import styled from 'styled-components';
 
 interface MessageProps {

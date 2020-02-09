@@ -1,13 +1,14 @@
 import React from 'react';
-import { Header, NowPlaying, RoomBar } from './core';
+import { Redirect } from 'react-router-dom';
+import { Header, NowPlaying, RoomBar, Chat } from './core';
 import { useRoom } from './providers';
 import styled from 'styled-components';
-import { Chat } from './core';
 
 const Layout: React.FC = (props: any) => {
   const roomProvider = useRoom();
 
   if (!roomProvider.roomId) {
+    if (window.location.pathname !== '/') return (<Redirect to='/' />);
     return (<>{props.children}</>);
   }
   return (
