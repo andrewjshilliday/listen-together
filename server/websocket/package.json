@@ -1,5 +1,5 @@
 {
-  "name": "listen-together-api",
+  "name": "listen-together-websocket",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -78,8 +78,7 @@
   },
   "scripts": {
     "start": "ts-node src/index.ts",
-    "start:watch": "nodemon",
-    "debug": "nodemon --inspect",
+    "debug": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
   },
