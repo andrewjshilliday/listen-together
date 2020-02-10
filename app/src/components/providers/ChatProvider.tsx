@@ -4,12 +4,13 @@ import { useWebSocket } from '../providers';
 export interface ChatProviderState {
   chatBoxVisible: boolean,
   messages: Message[],
+  unreadMessageCount: number,
   actions: IActions
 }
 
 interface IActions {
   sendMessage: (message: string) => void,
-  toggleVisibility: () => void
+  setVisibility: (visible: boolean) => void
 }
 
 interface Message {
@@ -22,9 +23,10 @@ export const ChatContext = createContext({} as ChatProviderState);
 const initState: ChatProviderState = {
   chatBoxVisible: false,
   messages: [],
+  unreadMessageCount: 0,
   actions: {
     sendMessage: (message: string) => {},
-    toggleVisibility: () => {}
+    setVisibility: (visible: boolean) => {}
   }
 }
 
@@ -40,23 +42,30 @@ export const ChatProvider = (props: any) => {
   const stateRef = useRef<ChatProviderState>(state);
 
   const sendMessage = (message: string) => {
+    if (!message) { return; }
     webSocketProvider.actions.sendMessage(message);
   };
 
-  const toggleVisibility = () => {
-    setState({ chatBoxVisible: !stateRef.current.chatBoxVisible });
+  const setVisibility = (visible: boolean) => {
+    setState({
+      chatBoxVisible: visible,
+      unreadMessageCount: visible ? 0 : stateRef.current.unreadMessageCount
+    });
   }
 
   useEffect(() => {
     setState({
       actions: {
         sendMessage: sendMessage,
-        toggleVisibility: toggleVisibility
+        setVisibility: setVisibility
       }
     });
 
     webSocketProvider.socket.on('message', (message: any) => {
-      setState({ messages: [...stateRef.current.messages, message]});
+      setState({
+        messages: [...stateRef.current.messages, message],
+        unreadMessageCount: stateRef.current.chatBoxVisible ? stateRef.current.unreadMessageCount : stateRef.current.unreadMessageCount + 1
+      });
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

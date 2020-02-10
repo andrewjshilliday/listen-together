@@ -1,14 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { TextField, InputAdornment, IconButton } from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
+import { Scrollbars } from 'react-custom-scrollbars';
 import { useChat, useRoom } from '../../../providers';
 import { Message } from '../../../core';
 import styled from 'styled-components';
+
+const handleClickOutsideComponent = (ref: React.RefObject<HTMLDivElement>) => {
+  const chatProvider = useChat();
+
+  const handleClickOutside = (event: any) => {
+    if (ref.current && !ref!.current.contains(event.target) && chatProvider.chatBoxVisible) {
+      chatProvider.actions.setVisibility(false);
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  });
+}
 
 const ChatBox: React.FC = (props: any) => {
   const chatProvider = useChat();
   const roomProvider = useRoom();
   const [message, setMessage] = useState('');
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  handleClickOutsideComponent(wrapperRef);
 
   const sendMessage = () => {
     chatProvider.actions.sendMessage(message);
@@ -16,9 +36,11 @@ const ChatBox: React.FC = (props: any) => {
   }
 
   return (
-    <ChatBoxContainer visible={chatProvider.chatBoxVisible}>
+    <ChatBoxContainer ref={wrapperRef} visible={chatProvider.chatBoxVisible}>
       <MessagesContainer>
-        {chatProvider.messages.map((message, i) => <Message key={i} message={message} name={roomProvider.username ?? ''}/>)}
+        <StyledScrollbar>
+          {chatProvider.messages.map((message, i) => <Message key={i} message={message} name={roomProvider.username ?? ''}/>)}
+        </StyledScrollbar>
       </MessagesContainer>
       <InputContainer>
         <TextField label="Type a message" value={message} onChange={(e) => setMessage(e.target.value)}
@@ -51,12 +73,18 @@ const ChatBoxContainer = styled.div<{visible: boolean}>`
   `}
   background: white;
   position: absolute;
-  bottom: 25px;
+  bottom: 40px;
   right: 25px;
   height: 500px;
   width: 500px;
   border: 1px solid black;
   border-radius: 2em;
+`;
+const StyledScrollbar = styled(Scrollbars)`
+  >div {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 const MessagesContainer = styled.div`
   display: flex;
@@ -67,5 +95,11 @@ const MessagesContainer = styled.div`
 `;
 const InputContainer = styled.div`
   margin: 0 25px;
-  >div { width: 100%; }
+  border-top: 1px solid #ccc;
+  >div {
+    width: 100%;
+    >div button {
+      :hover { color: var(--primary); }
+    }
+  }
 `;

@@ -16,7 +16,7 @@ const Message: React.FC<MessageProps> = ({ message, name }) => {
 
   return (
     <MessageContainer isSentByCurrentUser={isSentByCurrentUser}>
-      {!isSentByCurrentUser && <Username>{name}</Username>}
+      {!isSentByCurrentUser && <Username>{message.user}</Username>}
       <MessageText isSentByCurrentUser={isSentByCurrentUser}>{message.text}</MessageText>
     </MessageContainer>
   );
@@ -28,14 +28,16 @@ export default Message;
 const MessageContainer = styled.div<{isSentByCurrentUser: boolean}>`
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   max-width: 75%;
   min-width: 50%;
+  overflow: hidden;
   ${props => props.isSentByCurrentUser && `
     align-self: flex-end;
   `}
 `;
 const Username = styled.div`
-  margin: 5px 15px 0 30px;
+  margin: 0 15px 0 30px;
   font-size: 10pt;
   color: gray;
 `;
@@ -44,11 +46,11 @@ const MessageText = styled.div<{isSentByCurrentUser: boolean}>`
   color: white;
   border-radius: 2em;
   ${props => props.isSentByCurrentUser && `
-    margin: 10px;
+    margin: 3px 10px;
     background: blue;
   `}
   ${props => !props.isSentByCurrentUser && `
-    margin: 3px 10px 10px 10px;
+    margin: 3px 10px 3px 10px;
     background: green;
   `}
 `;

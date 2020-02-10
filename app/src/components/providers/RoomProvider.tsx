@@ -56,7 +56,7 @@ export const RoomProvider = (props: any) => {
   };
 
   const joinRoom = (id: string, callback: any) => {
-    webSocketProvider.socket.emit('join', { name: stateRef.current.username, roomId: id }, async ({ roomId, playlist, error }: any) => {
+    webSocketProvider.socket.emit('join', { name: stateRef.current.username, roomId: id.trim() }, async ({ roomId, playlist, error }: any) => {
       if (error) {
         console.log(error);
         return;

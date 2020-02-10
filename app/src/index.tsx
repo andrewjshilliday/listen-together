@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import App from './components/App';
 import 'sanitize.css'
+import 'antd/dist/antd.css';
 import './index.css';
 import './assets/styles/common.scss';
 
