@@ -6,7 +6,7 @@ import { useChat, useRoom } from '../../../providers';
 import { Message } from '../../../core';
 import styled from 'styled-components';
 
-const handleClickOutsideComponent = (ref: React.RefObject<HTMLDivElement>) => {
+const useOutsideAlerter = (ref: React.RefObject<HTMLDivElement>) => {
   const chatProvider = useChat();
 
   const handleClickOutside = (event: any) => {
@@ -28,7 +28,7 @@ const ChatBox: React.FC = (props: any) => {
   const roomProvider = useRoom();
   const [message, setMessage] = useState('');
   const wrapperRef = useRef<HTMLDivElement>(null);
-  handleClickOutsideComponent(wrapperRef);
+  useOutsideAlerter(wrapperRef);
 
   const sendMessage = () => {
     chatProvider.actions.sendMessage(message);
