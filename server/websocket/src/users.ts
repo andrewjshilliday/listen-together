@@ -1,8 +1,9 @@
 import { Room } from "./rooms";
 
 export interface User {
-  id: string,
-  name: string,
+  id: string
+  name: string
+  color?: string
   room: Room
 }
 
@@ -17,6 +18,7 @@ export const addUser = ({ id, name, room }: User): User => {
   if (existingUser) throw 'Username is taken';
 
   const user = { id, name, room } as User;
+  user.color = generateUserColor();
   users.push(user);
 
   return user;
@@ -33,11 +35,15 @@ export const removeUser = (id: string): User => {
 export const getUserById = (id: string): User => {
   const user = users.find((user) => user.id === id);
 
-  if (!user) throw `User with id ${id} not found`;
+  if (user == null) throw `User with id ${id} not found`;
 
   return user;
 }
 
 export const getUsersInRoom = (roomId: string): User[] => {
   return users.filter((user) => user.room.id === roomId);
+}
+
+const generateUserColor = (): string => {
+  return '#' + Math.floor(Math.random()*16777215).toString(16);
 }

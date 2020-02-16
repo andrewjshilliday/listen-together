@@ -56,8 +56,6 @@ io.on('connect', (socket) => {
       return callback({ error: error });
     }
 
-    socket.broadcast.to(user.room.id).emit('message', { user: 'system', text: `${user.name} has joined!` });
-
     socket.join(user.room.id);
 
     io.to(user.room.id).emit('roomData', { room: user.room.id, users: getUsersInRoom(user.room.id) });
@@ -129,7 +127,6 @@ io.on('connect', (socket) => {
     if (user) {
       const usersInRoom = getUsersInRoom(user.room.id);
 
-      io.to(user.room.id).emit('message', { user: 'system', text: `${user.name} has left.` });
       io.to(user.room.id).emit('roomData', { room: user.room.id, users: usersInRoom});
 
       if (!usersInRoom || usersInRoom.length === 0) {
