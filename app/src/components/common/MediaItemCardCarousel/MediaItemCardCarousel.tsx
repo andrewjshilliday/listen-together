@@ -10,23 +10,21 @@ interface MediaItemCardCarouselProps {
   title?: string
 }
 
+type ScrollDirection = 'left' | 'right';
+
 const MediaItemCardCarousel: React.FC<MediaItemCardCarouselProps> = ({ items, title }) => {
   const rowRef = createRef<HTMLDivElement>();
   const leftIconRef = createRef<HTMLDivElement>();
   const rightIconRef = createRef<HTMLDivElement>();
 
   useEffect(() => {
-    if (leftDisabled()) {
-      leftIconRef.current!.classList.add('disabled');
-    }
-    if (rightDisabled()) {
-      rightIconRef.current!.classList.add('disabled');
-    }
+    leftDisabled() ? leftIconRef.current!.classList.add('disabled') : leftIconRef.current!.classList.remove('disabled');
+    rightDisabled() ? rightIconRef.current!.classList.add('disabled') : rightIconRef.current!.classList.remove('disabled');
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [leftIconRef, rightIconRef])
+  }, [items, leftIconRef, rightIconRef])
 
-  const scroll = (right: boolean) => {
-    if (right) {
+  const scroll = (scrollDirection: ScrollDirection) => {
+    if (scrollDirection === 'right') {
       rightIconRef.current!.classList.add('disabled');
       leftIconRef.current!.classList.remove('disabled');
       rowRef.current!.scrollLeft += rowRef.current!.offsetWidth;
@@ -37,9 +35,9 @@ const MediaItemCardCarousel: React.FC<MediaItemCardCarouselProps> = ({ items, ti
     }
 
     setTimeout(() => {
-      if (right && !rightDisabled()) {
+      if (scrollDirection === 'right' && !rightDisabled()) {
         rightIconRef.current!.classList.remove('disabled');
-      } else if (!right && !leftDisabled()) {
+      } else if (scrollDirection === 'left' && !leftDisabled()) {
         leftIconRef.current!.classList.remove('disabled');
       }
     }, 600);
@@ -56,24 +54,24 @@ const MediaItemCardCarousel: React.FC<MediaItemCardCarouselProps> = ({ items, ti
   return (
     <CarouselContainer>
       {title && <h2>{title}</h2>}
-      <MediaItemsContainer id={`items-${items[0].id}-${items[items.length-1].id}`}>
-        <LeftIcon ref={leftIconRef} onClick={() => scroll(false)}></LeftIcon>
+      <MediaItemsContainer>
+        <LeftIcon ref={leftIconRef} onClick={() => scroll('left')}></LeftIcon>
         <MediaItemCollection ref={rowRef}>
-          {items.every((item: MusicKit.MediaItem) => item.attributes) ?
+          {items.length && items.every((item: MusicKit.MediaItem) => item.attributes) ?
             items.map((item: MusicKit.MediaItem) => (
               <MediaItemCard key={item.id} item={item}></MediaItemCard>
             ))
             :
             Array.from(new Array(3)).map((_, i) => (
               <Box key={i} width="16.667%" style={{ margin: '0 10px', borderRadius: '0.5em' }}>
-                <Skeleton variant="rect" width="100%" height={180} style={{ marginBottom: 4, borderRadius: '0.5em' }} />
+                <Skeleton variant="rect" width="100%" style={{ paddingBottom: '100%', marginBottom: 4, borderRadius: '0.5em' }} />
                 <Skeleton variant="rect" width="100%" height={20} style={{ marginBottom: 4, borderRadius: '0.5em' }} />
                 <Skeleton variant="rect" width="100%" height={20} style={{ borderRadius: '0.5em' }} />
               </Box>
             ))
           }
         </MediaItemCollection>
-        <RightIcon ref={rightIconRef} onClick={() => scroll(true)}></RightIcon>
+        <RightIcon ref={rightIconRef} onClick={() => scroll('right')}></RightIcon>
       </MediaItemsContainer>
     </CarouselContainer>
   );

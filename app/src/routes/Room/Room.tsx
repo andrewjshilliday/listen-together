@@ -10,6 +10,7 @@ const Room: React.FC = (props: any) => {
   useEffect(() => {
     chatProvider.actions.setPopoverChatIconVisibility(false);
     return () => { chatProvider.actions.setPopoverChatIconVisibility(true); }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {

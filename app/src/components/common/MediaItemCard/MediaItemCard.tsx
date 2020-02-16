@@ -14,7 +14,7 @@ const MediaItemCard: React.FC<MediaItemCardProps> = ({ item }) => {
       <span className="text-truncate">{item.attributes.name}</span>
     </Link>
     {
-      item.relationships && item.relationships.artists ?
+      item.relationships?.artists?.data.length > 0 ?
         <Link to={`/artist/${item.relationships.artists.data[0].id}`}><span className="text-truncate">{item.attributes.artistName}</span></Link>
         :
         <span className="text-truncate">{item.attributes.artistName}</span>

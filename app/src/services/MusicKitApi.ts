@@ -2,7 +2,7 @@ import axios from 'axios';
 declare const MusicKit: any;
 const APPLE_MUSIC_API = 'https://api.music.apple.com';
 
-type types = 'songs' | 'artists' | 'albums' | 'playlists';
+type IncludeTypes = 'songs' | 'artists' | 'albums' | 'playlists';
 
 interface MusicKitApiService {
   Artist: (id: string, include?: string) => Promise<MusicKit.MediaItem>,
