@@ -8,30 +8,38 @@ export const albums: APIGatewayProxyHandler = async (event, _context): Promise<A
   const paramIds = event.queryStringParameters["ids"];
   let ids: string[] = [];
   if (paramIds !== "") {
-    ids = paramIds.split(",")
+    ids = paramIds.split(",");
   }
 
-  return GetAlbums(ids, storefront);
+	const response = await getAlbums(ids, storefront);
+
+	if (response) {
+		return sendRes(200, JSON.stringify({ albums: response }));
+	}
+
+	return sendRes(404, JSON.stringify({ error: 'Requested albums not found' }));
 }
 
-const GetAlbums = async (ids: string[], storefront: string): Promise<APIGatewayProxyResult> => {
-  const albums: AppleMusic.Album[] = [];
-  await Promise.all(ids.map(async (id) => {
-    const album = await GetAlbum(id, storefront);
-    if (album) { albums.push(album); }
-  }));
-
+const sendRes = (status: number, body: string): APIGatewayProxyResult => {
   return {
-    statusCode: 200,
-    body: JSON.stringify({
-      albums: albums
-    }, null, 2),
+    statusCode: status,
+    body: body
   };
 }
 
-const GetAlbum = async (id: string, storefront: string): Promise<AppleMusic.Album> => {
+const getAlbums = async (ids: string[], storefront: string): Promise<AppleMusic.Album[]> => {
+  const albums: AppleMusic.Album[] = [];
+  await Promise.all(ids.map(async (id) => {
+    const album = await getAlbum(id, storefront);
+    if (album) { albums.push(album); }
+  }));
+
+  return albums;
+}
+
+const getAlbum = async (id: string, storefront: string): Promise<AppleMusic.Album> => {
   const url = `https://itunes.apple.com/${storefront}/album/${id}`;
-  let album: AppleMusic.Album = { id: id };
+  let album: AppleMusic.Album;
 
   await axios(url)
     .then(response => {
@@ -40,8 +48,8 @@ const GetAlbum = async (id: string, storefront: string): Promise<AppleMusic.Albu
       const script = $("script[id='shoebox-ember-data-store']")[0].children[0].data;
 
       if (script) {
-        const resources = JSON.parse(script);
-        album.resources = resources as AppleMusic.Resources;
+        album = { id: id };
+        album.resources = JSON.parse(script);
         album.resources.included = album.resources.included.filter(item =>
           item.type !== 'offer' &&
           item.type !== 'image' &&
@@ -51,7 +59,9 @@ const GetAlbum = async (id: string, storefront: string): Promise<AppleMusic.Albu
         );
       }
     })
-    .catch(console.error);
+    .catch(() => {
+      return null;
+    });
 
   return album;
 }
