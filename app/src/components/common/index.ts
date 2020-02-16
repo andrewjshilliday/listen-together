@@ -3,3 +3,7 @@ export { default as MediaItemCardCarousel } from './MediaItemCardCarousel/MediaI
 export { default as TrackList } from './TrackList/TrackList';
 export { default as QueueMediaItemView } from './QueueMediaItemView/QueueMediaItemView';
 export { default as Loading } from './Loading/Loading';
+export { default as ChatBox } from './Chat/ChatBox/ChatBox';
+export { default as Message } from './Chat/Message/Message';
+export { default as ChatInput } from './Chat/ChatInput/ChatInput';
+export { default as OnlineUsers } from './Chat/OnlineUsers/OnlineUsers';

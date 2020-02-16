@@ -2,12 +2,12 @@ import React, { createContext, useContext, useState } from 'react'
 declare const MusicKit: any;
 
 interface AuthorizationProviderState {
-  authorized: boolean,
+  authorized: boolean
   actions: IActions
 }
 
 interface IActions {
-  signIn: () => void,
+  signIn: () => void
   signOut: () => void
 }
 

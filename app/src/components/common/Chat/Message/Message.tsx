@@ -44,12 +44,13 @@ const Username = styled.div`
 const MessageText = styled.div<{isSentByCurrentUser: boolean}>`
   padding: 10px;
   color: white;
-  border-radius: 2em;
   ${props => props.isSentByCurrentUser && `
+    border-radius: 2em 2em 0 2em;
     margin: 3px 10px;
     background: blue;
   `}
   ${props => !props.isSentByCurrentUser && `
+    border-radius: 2em 2em 2em 0;
     margin: 3px 10px 3px 10px;
     background: green;
   `}

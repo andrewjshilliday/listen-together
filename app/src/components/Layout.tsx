@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import { Header, NowPlaying, RoomBar, Chat } from './core';
+import { Header, NowPlaying, RoomBar, PopoverChat } from './core';
 import { useRoom } from './providers';
 import styled from 'styled-components';
 
@@ -17,7 +17,7 @@ const Layout: React.FC = (props: any) => {
       <MainWrapper>
         {roomProvider.roomId && <RoomBar />}
         <MainContent id="main-content">{props.children}</MainContent>
-        {roomProvider.roomId && <ChatContainer />}
+        {roomProvider.roomId && <PopoverChatContainer />}
       </MainWrapper>
       <NowPlaying></NowPlaying>
     </>
@@ -32,10 +32,12 @@ const MainWrapper = styled.div`
   position: relative;
 `;
 const MainContent = styled.main`
+  display: flex;
+  flex-direction: column;
   height: calc(100vh - 175px);
   width: 100%;
   padding: 0 15px;
   overflow-x: hidden;
   overflow-y: scroll;
 `;
-const ChatContainer = styled(Chat)``;
+const PopoverChatContainer = styled(PopoverChat)``;

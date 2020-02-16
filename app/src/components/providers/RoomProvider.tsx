@@ -2,24 +2,32 @@ import React, { createContext, useContext, useEffect, useReducer, useRef } from 
 import { useMusicKit, useWebSocket } from '../providers';
 
 interface RoomProviderState {
-  roomId?: string,
-  username?: string,
-  playlist: MusicKit.MediaItem[],
-  playbackCountdown?: number,
+  roomId?: string
+  username?: string
+  playlist: MusicKit.MediaItem[]
+  users: User[]
+  playbackCountdown?: number
   actions: IActions
 }
 
 interface IActions {
-  createUser: (name: string) => void,
-  addToPlaylist: (item: MusicKit.MediaItem) => void,
-  createRoom: (callback: any) => void,
+  createUser: (name: string) => void
+  addToPlaylist: (item: MusicKit.MediaItem) => void
+  createRoom: (callback: any) => void
   joinRoom: (id: string, callback: any) => void
+}
+
+interface User {
+  name: string
+  id: string
+  color: string
 }
 
 const RoomContext = createContext({} as RoomProviderState)
 
 const initState: RoomProviderState = {
   playlist: [],
+  users: [],
   actions: {
     createUser: () => {},
     addToPlaylist: () => {},
@@ -141,6 +149,11 @@ export const RoomProvider = (props: any) => {
           }, 1000);
         }
       };
+    });
+
+    webSocketProvider.socket.on('roomData', ({ room, users }: any) => {
+      console.log(users.filter((user: User) => user.name !== stateRef.current.username));
+      setState({ users: users.filter((user: User) => user.name !== stateRef.current.username) });
     });
 
     musicKitProvider.musicKit.addEventListener('queueItemsDidChange', queueItemsDidChange);

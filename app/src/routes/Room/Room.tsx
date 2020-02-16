@@ -1,10 +1,16 @@
 import React, { useEffect } from 'react';
-import { useRoom } from '../../components/providers';
-import { QueueMediaItemView } from '../../components/common';
+import { useRoom, useChat } from '../../components/providers';
+import { QueueMediaItemView, ChatBox } from '../../components/common';
 import styled from 'styled-components';
 
 const Room: React.FC = (props: any) => {
   const roomProvider = useRoom();
+  const chatProvider = useChat();
+
+  useEffect(() => {
+    chatProvider.actions.setPopoverChatIconVisibility(false);
+    return () => { chatProvider.actions.setPopoverChatIconVisibility(true); }
+  }, [])
 
   useEffect(() => {
     if (!roomProvider.roomId) {
@@ -26,7 +32,9 @@ const Room: React.FC = (props: any) => {
             <QueueMediaItemView key={item.id} item={item} index={index}></QueueMediaItemView>
           ))}
         </QueueContainer>
-        <ChatContainer></ChatContainer>
+        <ChatContainer>
+          <ChatBox></ChatBox>
+        </ChatContainer>
       </RoomContainer>
     </>
   );
@@ -38,6 +46,7 @@ export default Room;
 const Header = styled.h1``;
 const RoomContainer = styled.div`
   display: flex;
+  height: calc(100% - 44px);
 `;
 const QueueContainer = styled.div`
   width: 60%;

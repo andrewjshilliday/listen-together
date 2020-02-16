@@ -4,20 +4,20 @@ import { WebSocketContext } from './WebSocketProvider';
 declare const MusicKit: any;
 
 interface MusicKitProviderState {
-  musicKit: MusicKit.MusicKitInstance,
-  isPlaying: boolean,
-  playbackLoading: boolean,
-  nowPlayingItem?: MusicKit.MediaItem,
-  currentPlaybackTime: number,
-  currentPlaybackTimeRemaining: number,
+  musicKit: MusicKit.MusicKitInstance
+  isPlaying: boolean
+  playbackLoading: boolean
+  nowPlayingItem?: MusicKit.MediaItem
+  currentPlaybackTime: number
+  currentPlaybackTimeRemaining: number
   actions: IActions
 }
 
 interface IActions {
-  play: () => void,
-  pause: () => void,
-  next: () => void,
-  previous: () => void,
+  play: () => void
+  pause: () => void
+  next: () => void
+  previous: () => void
   setVolume: (v: number | number[]) => void
 }
 
