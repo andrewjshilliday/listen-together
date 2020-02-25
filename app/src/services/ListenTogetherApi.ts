@@ -1,6 +1,6 @@
 import axios from 'axios';
 declare const MusicKit: any;
-const LISTEN_TOGETHER_API = 'http://localhost:8003';
+const LISTEN_TOGETHER_API = process.env.NODE_ENV === 'production' ? 'https://listen-together-server.herokuapp.com/' : 'http://localhost:8003';
 
 type types = 'songs' | 'artists' | 'albums' | 'playlists';
 

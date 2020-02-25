@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { Button, IconButton, TextField, InputAdornment } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
-import { useAuthorization, useRoom } from '../../providers'
+import { useRoom } from '../../providers'
+import { ApplicationState } from '../../../store';
+import { signIn, signOut } from '../../../store/authentication';
 import styled from 'styled-components';
 import musicSvg from '../../../assets/images/listen-together.svg';
 
 const Header: React.FC = (props: any) => {
-  const authProvider = useAuthorization();
+  const dispatch = useDispatch();
+  const authenticated = useSelector((state: ApplicationState) => state.authentication.authenticated);
   const roomProvider = useRoom();
   const history = useHistory();
   const [searchQuery, setSearchQuery] = useState('');
@@ -17,15 +21,10 @@ const Header: React.FC = (props: any) => {
       history.push(`/search/${searchQuery}`);
     }
   }
-
-  const signOut = async () => {
-    authProvider.actions.signOut();
-    window.location.reload();
-  }
   
   let authButton, searchField;
-  if (authProvider.authorized) {
-    authButton = <Button variant="contained" color="primary" onClick={() => signOut()}>Sign Out</Button>;
+  if (authenticated) {
+    authButton = <Button variant="contained" color="primary" onClick={() => dispatch(signOut())}>Sign Out</Button>;
     searchField = 
       <TextField
         label="Search"
@@ -47,7 +46,7 @@ const Header: React.FC = (props: any) => {
         }}
       />;
   } else {
-    authButton = <Button variant="contained" color="primary" onClick={() => authProvider.actions.signIn()}>Sign In</Button>;
+    authButton = <Button variant="contained" color="primary" onClick={() => dispatch(signIn())}>Sign In</Button>;
   }
   
   return (

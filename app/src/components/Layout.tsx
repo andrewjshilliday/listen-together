@@ -15,9 +15,9 @@ const Layout: React.FC = (props: any) => {
     <>
       <Header></Header>
       <MainWrapper>
-        {roomProvider.roomId && <RoomBar />}
+        <RoomBar />
         <MainContent id="main-content">{props.children}</MainContent>
-        {roomProvider.roomId && <PopoverChatContainer />}
+        <PopoverChatContainer />
       </MainWrapper>
       <NowPlaying></NowPlaying>
     </>

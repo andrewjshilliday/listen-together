@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, TextField, InputAdornment, IconButton } from '@material-ui/core';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import { useRoom, useAuthorization } from '../../components/providers';
+import { useRoom } from '../../components/providers';
+import { ApplicationState } from '../../store';
+import { signIn } from '../../store/authentication';
 import styled from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 import musicSvg from '../../assets/images/listen-together.svg';
 
 const Home: React.FC = (props: any) => {
+  const dispatch = useDispatch();
+  const authenticated = useSelector((state: ApplicationState) => state.authentication.authenticated)
   const [name, setName] = useState('');
   const [roomId, setRoomId] = useState('');
   const history = useHistory();
   const roomProvider = useRoom();
-  const authProvider = useAuthorization();
 
   useEffect(() => {
     if (roomProvider.roomId) {
@@ -45,13 +49,13 @@ const Home: React.FC = (props: any) => {
     <HomeContainer>
       <Title>ListenTogether</Title>
       <ListenTogetherImage src={musicSvg} />
-      <CSSTransition in={!authProvider.authorized} classNames="fade" timeout={300} unmountOnExit>
+      <CSSTransition in={!authenticated} classNames="fade" timeout={300} unmountOnExit>
         <FadeInContainer>
             <h4>To use this application, connect to your Apple Music account</h4>
-          <Button variant="outlined" color="primary" onClick={() => authProvider.actions.signIn()}>Connect to Apple Music</Button>
+          <Button variant="outlined" color="primary" onClick={() => dispatch(signIn())}>Connect to Apple Music</Button>
         </FadeInContainer>
       </CSSTransition>
-      <CSSTransition in={authProvider.authorized} classNames="fade" timeout={300} unmountOnExit>
+      <CSSTransition in={authenticated} classNames="fade" timeout={300} unmountOnExit>
         <FadeInContainer>
           <UsernameContainer disabled={roomProvider.username != null}>
             <h2>First, Pick a Username</h2>
