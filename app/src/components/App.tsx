@@ -8,6 +8,7 @@ import { Home, Room, Search, Artist, Album, Playlist } from '../routes';
 import Layout from './Layout';
 import { setMusicKitInstance } from '../store/musicKit';
 import { setAuthenticated } from '../store/authentication';
+import { connect } from '../store/websocket';
 
 const App: React.FC = () => {
   console.log(process.env.NODE_ENV);
@@ -16,6 +17,7 @@ const App: React.FC = () => {
   useEffect(() => {
     dispatch(setMusicKitInstance());
     dispatch(setAuthenticated());
+    dispatch(connect());
   }, []);
 
   return (

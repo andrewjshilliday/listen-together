@@ -3,28 +3,25 @@ import { all, fork } from 'redux-saga/effects'
 import { connectRouter, RouterState } from 'connected-react-router'
 import { History } from 'history'
 
-import { MusicKitState, musicKitReducer } from './musicKit';
-import { authenticationSaga, authenticationReducer, AuthenticationState } from './authentication';
+import { MusicKitState, musicKitReducer, musicKitSaga } from './musicKit';
+import { AuthenticationState, authenticationReducer, authenticationSaga } from './authentication';
+import { WebsocketState, websocketReducer, websocketSaga } from './websocket';
 
 export interface ApplicationState {
   musicKit: MusicKitState
   authentication: AuthenticationState
+  websocket: WebsocketState
   router: RouterState
 }
 
-// Whenever an action is dispatched, Redux will update each top-level application state property
-// using the reducer with the matching name. It's important that the names match exactly, and that
-// the reducer acts on the corresponding ApplicationState property type.
 export const createRootReducer = (history: History) => 
   combineReducers({
     musicKit: musicKitReducer,
     authentication: authenticationReducer,
+    websocket: websocketReducer,
     router: connectRouter(history)
-  })
+  });
 
-// Here we use `redux-saga` to trigger actions asynchronously. `redux-saga` uses something called a
-// "generator function", which you can read about here:
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*
 export function* rootSaga() {
-  yield all([fork(authenticationSaga)])
+  yield all([fork(musicKitSaga), fork(authenticationSaga), fork(websocketSaga)]);
 }

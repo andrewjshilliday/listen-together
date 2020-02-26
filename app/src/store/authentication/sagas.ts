@@ -24,7 +24,6 @@ function* watchSignOut() {
   yield takeEvery(AuthenticationActionTypes.SIGN_OUT, handleSignOut);
 }
 
-// We can also use `fork()` here to split our saga into multiple watchers.
 function* authenticationSaga() {
   yield all([fork(watchSignIn), fork(watchSignOut)]);
 }
