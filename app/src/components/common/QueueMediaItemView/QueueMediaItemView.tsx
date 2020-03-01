@@ -1,6 +1,7 @@
 import React from 'react';
-import { useMusicKit } from '../../providers';
+import { useSelector } from 'react-redux';
 import { MusicKitService } from '../../../services';
+import { ApplicationState } from '../../../store';
 import styled from 'styled-components';
 
 interface QueueMediaItemViewProps {
@@ -9,12 +10,12 @@ interface QueueMediaItemViewProps {
 }
 
 const QueueMediaItemView: React.FC<QueueMediaItemViewProps> = ({ item, index }) => {
-  const musicKitProvider = useMusicKit();
+  const musicKitInstance = useSelector((state: ApplicationState) => state.musicKit.musicKitInstance);
   
   return (
     <QueueItem>
       <img src={MusicKitService.FormatArtwork(item.attributes.artwork, 70)} className="img-fluid rounded" alt={item.attributes.name}/>
-      <QueueItemText nowPlaying={musicKitProvider.musicKit.player.queue.position === index}>
+      <QueueItemText nowPlaying={musicKitInstance?.player.queue.position === index}>
         <span className="text-truncate">{item.attributes.name}</span>
         <span className="text-truncate">{item.attributes.albumName}</span>
         <span className="text-truncate">{item.attributes.artistName}</span>

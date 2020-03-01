@@ -1,13 +1,14 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { Header, NowPlaying, RoomBar, PopoverChat } from './core';
-import { useRoom } from './providers';
+import { ApplicationState } from '../store';
 import styled from 'styled-components';
 
 const Layout: React.FC = (props: any) => {
-  const roomProvider = useRoom();
+  const roomId = useSelector((state: ApplicationState) => state.room.roomId);
 
-  if (!roomProvider.roomId) {
+  if (!roomId) {
     if (window.location.pathname !== '/') return (<Redirect to='/' />);
     return (<>{props.children}</>);
   }

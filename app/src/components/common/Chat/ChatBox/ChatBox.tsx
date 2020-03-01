@@ -1,15 +1,18 @@
 import React, { useRef, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Scrollbars } from 'react-custom-scrollbars';
-import { useChat, useRoom } from '../../../providers';
 import { Message, ChatInput, OnlineUsers } from '../../../common';
+import { ApplicationState } from '../../../../store';
+import { setPopoverBoxVisibility } from '../../../../store/chat';
 import styled from 'styled-components';
 
 const useCloseChatBox = (ref: React.RefObject<HTMLDivElement>) => {
-  const chatProvider = useChat();
+  const popoverBoxVisible = useSelector((state: ApplicationState) => state.chat.popoverChatBoxVisible);
+  const dispatch = useDispatch();
 
   const handleClickOutside = (event: any) => {
-    if (ref.current && !ref!.current.contains(event.target) && chatProvider.popoverChatBoxVisible) {
-      chatProvider.actions.setPopoverChatBoxVisibility(false);
+    if (ref.current && !ref!.current.contains(event.target) && popoverBoxVisible) {
+      dispatch(setPopoverBoxVisibility(false));
     }
   }
 
@@ -22,8 +25,8 @@ const useCloseChatBox = (ref: React.RefObject<HTMLDivElement>) => {
 }
 
 const ChatBox: React.FC = (props: any) => {
-  const chatProvider = useChat();
-  const roomProvider = useRoom();
+  const messages = useSelector((state: ApplicationState) => state.chat.messages);
+  const username = useSelector((state: ApplicationState) => state.room.username);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const messagesContainer = useRef<HTMLDivElement>(null);
   useCloseChatBox(wrapperRef);
@@ -33,15 +36,14 @@ const ChatBox: React.FC = (props: any) => {
     if (element) {
       element.scrollTop = element.scrollHeight;
     }
-  }, [chatProvider.messages]);
+  }, [messages]);
 
   return (
     <ChatBoxContainer>
       <OnlineUsers />
-      {/* {roomProvider.users.length > 0 && } */}
       <MessagesContainer ref={messagesContainer}>
         <StyledScrollbar>
-          {chatProvider.messages.map((message, i) => <Message key={i} message={message} name={roomProvider.username ?? ''}/>)}
+          {messages.map((message, i) => <Message key={i} message={message} name={username ?? ''}/>)}
         </StyledScrollbar>
       </MessagesContainer>
       <ChatInput />

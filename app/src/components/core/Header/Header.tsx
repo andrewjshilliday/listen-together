@@ -3,7 +3,6 @@ import { useHistory, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button, IconButton, TextField, InputAdornment } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
-import { useRoom } from '../../providers'
 import { ApplicationState } from '../../../store';
 import { signIn, signOut } from '../../../store/authentication';
 import styled from 'styled-components';
@@ -12,7 +11,7 @@ import musicSvg from '../../../assets/images/listen-together.svg';
 const Header: React.FC = (props: any) => {
   const dispatch = useDispatch();
   const authenticated = useSelector((state: ApplicationState) => state.authentication.authenticated);
-  const roomProvider = useRoom();
+  const roomId = useSelector((state: ApplicationState) => state.room.roomId);
   const history = useHistory();
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -51,10 +50,10 @@ const Header: React.FC = (props: any) => {
   
   return (
     <HeaderContainer>
-      <Logo className="text-truncate" to={roomProvider.roomId ? `/room/${roomProvider.roomId}` : `/`}>
+      <Logo className="text-truncate" to={roomId ? `/room/${roomId}` : `/`}>
         <img src={musicSvg} alt="ListenTogether" /> ListenTogether
       </Logo>
-      {roomProvider.roomId && <SearchField>{searchField}</SearchField>}
+      {roomId && <SearchField>{searchField}</SearchField>}
       <AuthButton>{authButton}</AuthButton>
     </HeaderContainer>
   );

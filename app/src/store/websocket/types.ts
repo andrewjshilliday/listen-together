@@ -1,20 +1,27 @@
 export enum WebsocketActionTypes {
   CONNECT = '@@websocket/CONNECT',
-  SEND_MUSICKIT_ACTION = '@@websocket/SEND_MUSICKIT_ACTION',
-  SEND_MESSAGE = '@@websocket/SEND_MESSAGE'
+  SEND_ACTION = '@@websocket/SEND_ACTION',
+  SEND_CHAT_MESSAGE = '@@websocket/SEND_MESSAGE',
+  CREATE_ROOM = '@@websocket/CREATE_ROOM',
+  JOIN_ROOM = '@@websocket/JOIN_ROOM'
 }
 
 export interface WebsocketState {
   socket?: SocketIOClient.Socket
 }
 
-export interface WebsocketMessagePayload {
+export interface WebsocketChatMessagePayload {
   message: string
 }
 
-export interface WebsocketMusicKitActionPayload {
-  musicKitActionType: WebsocketMusicKitActionType
-  seekToTime?: number
+export interface WebsocketSendActionPayload {
+  sendActionType: WebsocketSendActionType
+  data?: any
 }
 
-export type WebsocketMusicKitActionType = 'play' | 'pause' | 'nextTrack' | 'previousTrack' | 'seekToTime';
+export interface WebsocketJoinRoomPayload {
+  username: string
+  roomId: string
+}
+
+export type WebsocketSendActionType = 'play' | 'pause' | 'nextTrack' | 'previousTrack' | 'seekToTime' | 'addToPlaylist';

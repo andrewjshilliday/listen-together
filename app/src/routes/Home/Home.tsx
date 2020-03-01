@@ -3,47 +3,50 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, TextField, InputAdornment, IconButton } from '@material-ui/core';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import { useRoom } from '../../components/providers';
 import { ApplicationState } from '../../store';
 import { signIn } from '../../store/authentication';
+import { setUser, createRoom, joinRoom } from '../../store/room';
 import styled from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 import musicSvg from '../../assets/images/listen-together.svg';
 
 const Home: React.FC = (props: any) => {
   const dispatch = useDispatch();
-  const authenticated = useSelector((state: ApplicationState) => state.authentication.authenticated)
+  const authenticated = useSelector((state: ApplicationState) => state.authentication.authenticated);
+  const roomId = useSelector((state: ApplicationState) => state.room.roomId);
+  const username = useSelector((state: ApplicationState) => state.room.username);
   const [name, setName] = useState('');
-  const [roomId, setRoomId] = useState('');
+  const [enteredRoomId, setEnteredRoomId] = useState('');
   const history = useHistory();
-  const roomProvider = useRoom();
 
   useEffect(() => {
-    if (roomProvider.roomId) {
-      props.history.push(`/room/${roomProvider.roomId}`);
+    if (roomId) {
+      props.history.push(`/room/${roomId}`);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const createUser = (userName: string) => {
+  /* const createUser = (userName: string) => {
     roomProvider.actions.createUser(userName);
-  }
+  }; */
 
-  const createRoom = () => {
-    roomProvider.actions.createRoom((roomId: string) => {
+  /* const createRoom = () => {
+    roomProvider.actions.createRoom();
+    /* (roomId: string) => {
       if (roomId) {
         history.push(`/room/${roomId}`);
       }
-    });
-  };
+    } *
+  }; */
 
-  const joinRoom = () => {
-    roomProvider.actions.joinRoom(roomId, (roomId: string) => {
+  /* const joinRoom = () => {
+    roomProvider.actions.joinRoom(enteredRoomId);
+    /* , (roomId: string) => {
       if (roomId) {
         history.push(`/room/${roomId}`);
       }
-    });
-  }
+    } *
+  } */
 
   return (
     <HomeContainer>
@@ -57,31 +60,31 @@ const Home: React.FC = (props: any) => {
       </CSSTransition>
       <CSSTransition in={authenticated} classNames="fade" timeout={300} unmountOnExit>
         <FadeInContainer>
-          <UsernameContainer disabled={roomProvider.username != null}>
+          <UsernameContainer disabled={username != null}>
             <h2>First, Pick a Username</h2>
             <UsernameInput label="Enter Username" onChange={(e) => setName(e.target.value)}
               onKeyPress={(e) => {
                 if (e.key === 'Enter') {
                   e.preventDefault();
-                  createUser(name);
+                  dispatch(setUser(name));
                 }
               }}
               InputProps={{ endAdornment: (
                 <InputAdornment position="end">
-                  <IconButton onClick={() => createUser(name)}>
+                  <IconButton onClick={() => dispatch(setUser(name))}>
                     <ArrowForwardIcon />
                   </IconButton>
                 </InputAdornment>
               ) }}
             />
           </UsernameContainer>
-          <RoomChoicesContainer disabled={roomProvider.username == null}>
+          <RoomChoicesContainer disabled={username == null}>
             <h2>Then</h2>
-            <CreateButton variant="contained" color="primary" onClick={() => createRoom()}>Create a Room</CreateButton>
+            <CreateButton variant="contained" color="primary" onClick={() => dispatch(createRoom(username!))}>Create a Room</CreateButton>
             <h3>Or</h3>
             <JoinRoomContainer>
-              <JoinInput label="Room ID" onChange={(e) => setRoomId(e.target.value)} />
-              <JoinButton variant="contained" color="primary" onClick={() => joinRoom()}>Join a Room</JoinButton>
+              <JoinInput label="Room ID" onChange={(e) => setEnteredRoomId(e.target.value)} />
+              <JoinButton variant="contained" color="primary" onClick={() => dispatch(joinRoom(enteredRoomId))}>Join a Room</JoinButton>
             </JoinRoomContainer>
           </RoomChoicesContainer>
         </FadeInContainer>

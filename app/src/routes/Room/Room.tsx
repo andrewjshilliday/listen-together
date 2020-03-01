@@ -1,35 +1,39 @@
 import React, { useEffect } from 'react';
-import { useRoom, useChat } from '../../components/providers';
+import { useDispatch, useSelector } from 'react-redux';
 import { QueueMediaItemView, ChatBox } from '../../components/common';
+import { ApplicationState } from '../../store';
+import { setPopoverIconVisibility } from '../../store/chat';
 import styled from 'styled-components';
 
 const Room: React.FC = (props: any) => {
-  const roomProvider = useRoom();
-  const chatProvider = useChat();
+  const dispatch = useDispatch();
+  const playlist = useSelector((state: ApplicationState) => state.room.playlist);
+  const roomId = useSelector((state: ApplicationState) => state.room.roomId);
+  const username = useSelector((state: ApplicationState) => state.room.username);
 
   useEffect(() => {
-    chatProvider.actions.setPopoverChatIconVisibility(false);
-    return () => { chatProvider.actions.setPopoverChatIconVisibility(true); }
+    dispatch(setPopoverIconVisibility(false));
+    return () => { dispatch(setPopoverIconVisibility(true)); }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
-    if (!roomProvider.roomId) {
+    if (!roomId) {
       props.history.push('/');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [roomProvider.roomId]);
+  }, [roomId]);
 
   useEffect(() => {
-    console.log(roomProvider.playlist);
-  }, [roomProvider.playlist]);
+    console.log(playlist);
+  }, [playlist]);
   
   return (
     <>
-      <Header>Room {props.match.params.id} User {roomProvider.username}</Header>
+      <Header>Room {props.match.params.id} User {username}</Header>
       <RoomContainer>
         <QueueContainer>
-          {roomProvider.playlist.map((item: MusicKit.MediaItem, index: number) => (
+          {playlist.map((item: MusicKit.MediaItem, index: number) => (
             <QueueMediaItemView key={item.id} item={item} index={index}></QueueMediaItemView>
           ))}
         </QueueContainer>

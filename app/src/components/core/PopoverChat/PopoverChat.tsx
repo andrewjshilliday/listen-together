@@ -1,16 +1,19 @@
 import React, { useEffect, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
 import { Badge } from 'antd';
 import { ChatBox } from '../../common';
-import { useChat } from '../../providers';
+import { ApplicationState } from '../../../store';
+import { setPopoverBoxVisibility } from '../../../store/chat';
 import styled from 'styled-components';
 
 const useCloseChatBox = (ref: React.RefObject<HTMLDivElement>) => {
-  const chatProvider = useChat();
+  const popoverBoxVisible = useSelector((state: ApplicationState) => state.chat.popoverChatBoxVisible);
+  const dispatch = useDispatch();
 
   const handleClickOutside = (event: any) => {
-    if (ref.current && !ref!.current.contains(event.target) && chatProvider.popoverChatBoxVisible) {
-      chatProvider.actions.setPopoverChatBoxVisibility(false);
+    if (ref.current && !ref!.current.contains(event.target) && popoverBoxVisible) {
+      dispatch(setPopoverBoxVisibility(false));
     }
   }
 
@@ -23,17 +26,20 @@ const useCloseChatBox = (ref: React.RefObject<HTMLDivElement>) => {
 }
 
 const PopoverChat: React.FC = (props: any) => {
-  const chatProvider = useChat();
+  const popoverChatBoxVisible = useSelector((state: ApplicationState) => state.chat.popoverChatBoxVisible);
+  const popoverChatIconVisible = useSelector((state: ApplicationState) => state.chat.popoverChatIconVisible);
+  const unreadMessageCount = useSelector((state: ApplicationState) => state.chat.unreadMessageCount);
+  const dispatch = useDispatch();
   const wrapperRef = useRef<HTMLDivElement>(null);
   useCloseChatBox(wrapperRef);
 
   return (
     <>
-      <ChatIconContainer visible={chatProvider.popoverChatIconVisible}
-        onClick={() => chatProvider.actions.setPopoverChatBoxVisibility(!chatProvider.popoverChatBoxVisible)}>
-        <StyledBadge count={chatProvider.unreadMessageCount}><ChatBubbleIcon /></StyledBadge>
+      <ChatIconContainer visible={popoverChatIconVisible}
+        onClick={() => dispatch(setPopoverBoxVisibility(!popoverChatBoxVisible))}>
+        <StyledBadge count={unreadMessageCount}><ChatBubbleIcon /></StyledBadge>
       </ChatIconContainer>
-      <ChatBoxContainer ref={wrapperRef} visible={chatProvider.popoverChatBoxVisible}>
+      <ChatBoxContainer ref={wrapperRef} visible={popoverChatBoxVisible}>
         <ChatBox />
       </ChatBoxContainer>
     </>

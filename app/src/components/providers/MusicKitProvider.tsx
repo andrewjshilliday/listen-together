@@ -14,10 +14,10 @@ interface MusicKitProviderState {
 }
 
 interface IActions {
-  play: () => void
+  /* play: () => void
   pause: () => void
   next: () => void
-  previous: () => void
+  previous: () => void */
   setVolume: (v: number | number[]) => void
 }
 
@@ -50,10 +50,10 @@ export class MusicKitProvider extends React.Component<MusicKitProviderProps, Mus
       currentPlaybackTime: 0,
       currentPlaybackTimeRemaining: 0,
       actions: {
-        play: this.play,
+        /* play: this.play,
         pause: this.pause,
         next: this.next,
-        previous: this.previous,
+        previous: this.previous, */
         setVolume: this.setVolume
       }
     };
@@ -71,7 +71,7 @@ export class MusicKitProvider extends React.Component<MusicKitProviderProps, Mus
       this.setVolume(+volume);
     }
 
-    this.context.socket.on('action', ({ action, data }: any) => {
+    /* this.context.socket.on('action', ({ action, data }: any) => {
       switch (action) {
         case 'play':
           this.state.musicKit.player.play();
@@ -89,7 +89,7 @@ export class MusicKitProvider extends React.Component<MusicKitProviderProps, Mus
           this.state.musicKit.player.seekToTime(data);
           break;
       }
-    });
+    }); */
   }
 
   componentWillUnmount = () => {

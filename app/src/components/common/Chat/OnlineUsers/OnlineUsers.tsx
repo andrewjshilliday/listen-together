@@ -1,20 +1,21 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Avatar, Tooltip  } from 'antd';
-import { useRoom } from '../../../providers';
+import { ApplicationState } from '../../../../store';
 import styled from 'styled-components';
 
 const OnlineUsers: React.FC = (props: any) => {
-  const roomProvider = useRoom();
+  const users = useSelector((state: ApplicationState) => state.room.users);;
 
   return (
     <OnlineUsersContainer>
       {
-        roomProvider.users.length > 0 ?
+        users.length > 0 ?
           <>
             <span>Other people in this room</span>
             <UserAvatarContainer>
               {
-                roomProvider.users.map(user =>
+                users.map(user =>
                   <Tooltip key={user.id} title={user.name}>
                     <AvatarIcon size="large" color={user.color}>{user.name}</AvatarIcon>
                   </Tooltip>)

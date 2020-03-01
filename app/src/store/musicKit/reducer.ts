@@ -18,9 +18,7 @@ const reducer: Reducer<MusicKitState> = (state = initialState, action) => {
     case MusicKitActionTypes.SET_PLAYBACKLOADING:
       return { ...state, playbackLoading: action.payload };
     case MusicKitActionTypes.SET_PLAYBACKTIME:
-      return { ...state, currentPlaybackTime: action.payload };
-    case MusicKitActionTypes.SET_PLAYBACKTIMEREMAINING:
-      return { ...state, currentPlaybackTimeRemaining: action.payload };
+      return { ...state, currentPlaybackTime: action.payload.playbackTime, currentPlaybackTimeRemaining: action.payload.playbackTimeRemaining };
     default:
       return state;
   }

@@ -1,58 +1,67 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CircularProgress, Slider } from '@material-ui/core';
+import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
-import { useMusicKit } from '../../providers';
+import { CircularProgress, Slider } from '@material-ui/core';
 import { MusicKitService } from '../../../services';
+import { ApplicationState } from '../../../store';
+import { musicKitPlay, musicKitPause } from '../../../store/musicKit';
 import styled from 'styled-components';
 
 type RepeatMode = 0 | 1 | 2;
 
 const NowPlaying: React.FC = (props: any) => {
-  const musicKitProvider = useMusicKit();
+  const dispatch = useDispatch();
+  const currentPlaybackTime = useSelector((state: ApplicationState) => state.musicKit.currentPlaybackTime);
+  const currentPlaybackTimeRemaining = useSelector((state: ApplicationState) => state.musicKit.currentPlaybackTimeRemaining);
+  const isPlaying = useSelector((state: ApplicationState) => state.musicKit.isPlaying);
+  const musicKitInstance = useSelector((state: ApplicationState) => state.musicKit.musicKitInstance);
+  const nowPlayingItem = useSelector((state: ApplicationState) => state.musicKit.nowPlayingItem);
+  const playbackLoading = useSelector((state: ApplicationState) => state.musicKit.playbackLoading);
   
   const handleVolumeChange = (event: any, newValue: number | number[]) => {
-    musicKitProvider.actions.setVolume(newValue as number);
+    return;
+    /* musicKitProvider.actions.setVolume(newValue as number); */
   };
 
   return (
-    <PlayerBar playing={musicKitProvider.nowPlayingItem != null}>
-      {musicKitProvider.nowPlayingItem ?
+    <PlayerBar playing={nowPlayingItem != null}>
+      {nowPlayingItem ?
         <>
           <NowPlayingInfoContainer>
-            <Link to={`/album/${musicKitProvider.nowPlayingItem.assets[0].metadata.playlistId}`}>
-              <NowPlayingArtwork src={MusicKitService.FormatArtwork(musicKitProvider.nowPlayingItem.attributes.artwork, 70)} className="rounded" alt={musicKitProvider.nowPlayingItem.attributes.name} />
+            <Link to={`/album/${nowPlayingItem.assets[0].metadata.playlistId}`}>
+              <NowPlayingArtwork src={MusicKitService.FormatArtwork(nowPlayingItem!.attributes.artwork, 70)} className="rounded" alt={nowPlayingItem!.attributes.name} />
             </Link>
             <NowPlaingText>
-              <span className="text-truncate">{musicKitProvider.nowPlayingItem.attributes.name}</span>
-              <Link to={`/album/${musicKitProvider.nowPlayingItem.assets[0].metadata.playlistId}`}><span className="text-truncate">{musicKitProvider.nowPlayingItem.attributes.albumName}</span></Link>
-              <Link to={`/artist/${musicKitProvider.nowPlayingItem.assets[0].metadata.artistId}`}><span className="text-truncate">{musicKitProvider.nowPlayingItem.attributes.artistName}</span></Link>
+              <span className="text-truncate">{nowPlayingItem!.attributes.name}</span>
+              <Link to={`/album/${nowPlayingItem!.assets[0].metadata.playlistId}`}><span className="text-truncate">{nowPlayingItem!.attributes.albumName}</span></Link>
+              <Link to={`/artist/${nowPlayingItem!.assets[0].metadata.artistId}`}><span className="text-truncate">{nowPlayingItem!.attributes.artistName}</span></Link>
             </NowPlaingText>
           </NowPlayingInfoContainer>
           <MediaControlsContainer>
             <MediaControlsButtonContainer>
-              {musicKitProvider.musicKit.player.repeatMode === 0 && <RepeatIcon repeatMode={musicKitProvider.musicKit.player.repeatMode}><i className="fas fa-redo" onClick={() => {return}}></i></RepeatIcon>}
-              {musicKitProvider.musicKit.player.repeatMode === 1 && <RepeatIcon repeatMode={musicKitProvider.musicKit.player.repeatMode}><i className="fas fa-redo" onClick={() => {return}}></i></RepeatIcon>}
-              {musicKitProvider.musicKit.player.repeatMode === 2 && <RepeatIcon repeatMode={musicKitProvider.musicKit.player.repeatMode}><i className="fas fa-redo" onClick={() => {return}}></i></RepeatIcon>}
+              {musicKitInstance!.player.repeatMode === 0 && <RepeatIcon repeatMode={musicKitInstance!.player.repeatMode}><i className="fas fa-redo" onClick={() => {return}}></i></RepeatIcon>}
+              {musicKitInstance!.player.repeatMode === 1 && <RepeatIcon repeatMode={musicKitInstance!.player.repeatMode}><i className="fas fa-redo" onClick={() => {return}}></i></RepeatIcon>}
+              {musicKitInstance!.player.repeatMode === 2 && <RepeatIcon repeatMode={musicKitInstance!.player.repeatMode}><i className="fas fa-redo" onClick={() => {return}}></i></RepeatIcon>}
               <PreviousIcon><i className="fas fa-backward" onClick={() => {return}}></i></PreviousIcon>
               <PlayIcon>
-                {!musicKitProvider.isPlaying && !musicKitProvider.playbackLoading && <i className="fas fa-play" onClick={() => musicKitProvider.actions.play()}></i>}
-                {musicKitProvider.isPlaying && !musicKitProvider.playbackLoading && <i className="fas fa-pause" onClick={() => musicKitProvider.actions.pause()}></i>}
-                {musicKitProvider.playbackLoading && <PlaybackLoadingSpinner onClick={() => {return}}></PlaybackLoadingSpinner>}
+                {!isPlaying && !playbackLoading && <i className="fas fa-play" onClick={() => dispatch(musicKitPlay())}></i>}
+                {isPlaying && !playbackLoading && <i className="fas fa-pause" onClick={() => dispatch(musicKitPause())}></i>}
+                {playbackLoading && <PlaybackLoadingSpinner onClick={() => {return}}></PlaybackLoadingSpinner>}
               </PlayIcon>
               <NextIcon><i className="fas fa-forward" onClick={() => {return}}></i></NextIcon>
-              <ShuffleIcon shuffleMode={musicKitProvider.musicKit.player.shuffleMode}><i className="fas fa-random" onClick={() => {return}}></i></ShuffleIcon>
+              <ShuffleIcon shuffleMode={musicKitInstance!.player.shuffleMode}><i className="fas fa-random" onClick={() => {return}}></i></ShuffleIcon>
             </MediaControlsButtonContainer>
             <MediaProgressBar>
-              <CurrentPlaybackTime>{moment.utc(musicKitProvider.currentPlaybackTime*1000).format('mm:ss')}</CurrentPlaybackTime>
-              <Slider value={musicKitProvider.currentPlaybackTime} onChange={() => {return}} max={musicKitProvider.musicKit.player.currentPlaybackDuration}></Slider>
-              <CurrentPlaybackDuration>-{moment.utc(musicKitProvider.currentPlaybackTimeRemaining*1000).format('m:ss')}</CurrentPlaybackDuration>
+              <CurrentPlaybackTime>{moment.utc(currentPlaybackTime*1000).format('mm:ss')}</CurrentPlaybackTime>
+              <Slider value={currentPlaybackTime} onChange={() => {return}} max={musicKitInstance!.player.currentPlaybackDuration}></Slider>
+              <CurrentPlaybackDuration>-{moment.utc(currentPlaybackTimeRemaining*1000).format('m:ss')}</CurrentPlaybackDuration>
             </MediaProgressBar>
           </MediaControlsContainer>
           <ExtraControlsContainer>
             <VolumeSlider>
               <i className="fas fa-volume-down"></i>
-              <Slider max={1} min={0} step={0.01} value={musicKitProvider.musicKit.player.volume} onChange={handleVolumeChange}></Slider>
+              <Slider max={1} min={0} step={0.01} value={musicKitInstance!.player.volume} onChange={handleVolumeChange}></Slider>
               <i className="fas fa-volume-up"></i>
             </VolumeSlider>
           </ExtraControlsContainer>

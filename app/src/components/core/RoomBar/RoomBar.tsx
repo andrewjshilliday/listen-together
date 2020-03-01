@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useRoom } from '../../providers'
+import { useSelector } from 'react-redux';
+import { ApplicationState } from '../../../store';
 import styled from 'styled-components';
 
 const RoomBar: React.FC = (props: any) => {
-  const roomProvider = useRoom();
+  const roomId = useSelector((state: ApplicationState) => state.room.roomId);
   
   return (
-    <Link to={`/room/${roomProvider.roomId}`}>
+    <Link to={`/room/${roomId}`}>
       <RoomBarContainer>
         <i className="fas fa-door-open fa-2x"></i>
       </RoomBarContainer>

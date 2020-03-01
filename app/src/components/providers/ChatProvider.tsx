@@ -72,13 +72,13 @@ export const ChatProvider = (props: any) => {
       }
     });
 
-    webSocketProvider.socket.on('message', (message: any) => {
+    /* webSocketProvider.socket.on('message', (message: any) => {
       setState({
         messages: [...stateRef.current.messages, message],
         unreadMessageCount: !stateRef.current.popoverChatIconVisible ? 0 :
           (stateRef.current.popoverChatBoxVisible ? stateRef.current.unreadMessageCount : stateRef.current.unreadMessageCount + 1)
       });
-    });
+    }); */
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -87,9 +87,10 @@ export const ChatProvider = (props: any) => {
   }, [state]);
 
   return (
-    <ChatContext.Provider value={state}>
+    <>{props.children}</>
+    /* <ChatContext.Provider value={state}>
       {props.children}
-    </ChatContext.Provider>
+    </ChatContext.Provider> */
   );
 
 }

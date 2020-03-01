@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { TextField, InputAdornment, IconButton } from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
-import { useChat } from '../../../providers';
 import styled from 'styled-components';
+import { sendMessage } from '../../../../store/chat';
 
 const ChatInput: React.FC = (props: any) => {
-  const chatProvider = useChat();
+  const dispatch = useDispatch();
   const [message, setMessage] = useState('');
 
-  const sendMessage = () => {
-    chatProvider.actions.sendMessage(message);
+  const dispatchSendMessage = () => {
+    dispatch(sendMessage(message));
     setMessage('');
   }
 
@@ -19,13 +20,13 @@ const ChatInput: React.FC = (props: any) => {
         onKeyPress={(e) => {
           if (e.key === 'Enter') {
             e.preventDefault();
-            sendMessage();
+            dispatchSendMessage();
           }
         }}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              <IconButton onClick={() => sendMessage()}>
+              <IconButton onClick={() => dispatchSendMessage()}>
                 <SendIcon />
               </IconButton>
             </InputAdornment>

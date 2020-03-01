@@ -40,9 +40,10 @@ export const AuthorizationProvider = (props: any) => {
   });
 
   return (
-    <AuthorizationContext.Provider value={state}>
+    <>{props.children}</>
+    /* <AuthorizationContext.Provider value={state}>
       {props.children}
-    </AuthorizationContext.Provider>
+    </AuthorizationContext.Provider> */
   );
 
 }

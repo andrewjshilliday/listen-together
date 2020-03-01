@@ -9,7 +9,9 @@ export enum MusicKitActionTypes {
   MUSICKIT_PAUSE = '@@musicKit/MUSICKIT_PAUSE',
   MUSICKIT_NEXTTRACK = '@@musicKit/MUSICKIT_NEXTTRACK',
   MUSICKIT_PREVIOUSTRACK = '@@musicKit/MUSICKIT_PREVIOUSTRACK',
-  MUSICKIT_SEEKTOTIME = '@@musicKit/MUSICKIT_SEEKTOTIME'
+  MUSICKIT_SEEKTOTIME = '@@musicKit/MUSICKIT_SEEKTOTIME',
+  MUSICKIT_ADDTOQUEUE = '@@musicKit/MUSICKIT_ADDTOQUEUE',
+  MUSICKIT_SETQUEUEPOSITION = '@@musicKit/MUSICKIT_SETQUEUEPOSITION'
 }
 
 export interface MusicKitState {
@@ -19,4 +21,9 @@ export interface MusicKitState {
   readonly nowPlayingItem?: MusicKit.MediaItem
   readonly currentPlaybackTime: number
   readonly currentPlaybackTimeRemaining: number
+}
+
+export interface PlaybackTimePayload {
+  playbackTime: number
+  playbackTimeRemaining: number
 }

@@ -1,7 +1,8 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import moment from 'moment';
-import { useRoom } from '../../providers';
 import { MusicKitService } from '../../../services';
+import { addToPlaylist } from '../../../store/room';
 import styled from 'styled-components';
 
 interface TrackListProps {
@@ -12,17 +13,13 @@ interface TrackListProps {
 }
 
 const TrackList: React.FC<TrackListProps> = ({ tracks, showArtwork, showArtist, showAlbum }) => {
-  const roomProvider = useRoom();
-
-  const addToPlaylist = (track: MusicKit.MediaItem) => {
-    roomProvider.actions.addToPlaylist(track);
-  };
+  const dispatch = useDispatch();
 
   return (
     <TrackListContainer>
       {tracks.map((track: MusicKit.MediaItem) => (
         <Track key={track.id}>
-          <TrackOption onClick={() => addToPlaylist(track)}><i className="fas fa-plus"></i></TrackOption>
+          <TrackOption onClick={() => dispatch(addToPlaylist(track))}><i className="fas fa-plus"></i></TrackOption>
           {showArtwork && <img src={MusicKitService.FormatArtwork(track.attributes.artwork, 44)} className="img-fluid rounded" alt={track.attributes.name} />}
           <TrackName artist={showArtist} album={showAlbum} className="text-truncate">{track.attributes.name}</TrackName>
           {showArtist && <TrackArtist className="text-truncate">{track.attributes.artistName}</TrackArtist>}
