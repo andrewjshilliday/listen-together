@@ -52,14 +52,14 @@ const Home: React.FC = (props: any) => {
     <HomeContainer>
       <Title>ListenTogether</Title>
       <ListenTogetherImage src={musicSvg} />
-      <CSSTransition in={!authenticated} classNames="fade" timeout={300} unmountOnExit>
-        <FadeInContainer>
-            <h4>To use this application, connect to your Apple Music account</h4>
+      {!authenticated &&
+        <>
+          <h4>To use this application, connect to your Apple Music account</h4>
           <Button variant="outlined" color="primary" onClick={() => dispatch(signIn())}>Connect to Apple Music</Button>
-        </FadeInContainer>
-      </CSSTransition>
-      <CSSTransition in={authenticated} classNames="fade" timeout={300} unmountOnExit>
-        <FadeInContainer>
+        </>
+      }
+      {authenticated &&
+        <>
           <UsernameContainer disabled={username != null}>
             <h2>First, Pick a Username</h2>
             <UsernameInput label="Enter Username" onChange={(e) => setName(e.target.value)}
@@ -84,11 +84,11 @@ const Home: React.FC = (props: any) => {
             <h3>Or</h3>
             <JoinRoomContainer>
               <JoinInput label="Room ID" onChange={(e) => setEnteredRoomId(e.target.value)} />
-              <JoinButton variant="contained" color="primary" onClick={() => dispatch(joinRoom(enteredRoomId))}>Join a Room</JoinButton>
+              <JoinButton variant="contained" color="primary" onClick={() => dispatch(joinRoom({ username: username!, roomId: enteredRoomId }))}>Join a Room</JoinButton>
             </JoinRoomContainer>
           </RoomChoicesContainer>
-        </FadeInContainer>
-      </CSSTransition>
+        </>
+      }
     </HomeContainer>
   );
 }
@@ -156,6 +156,7 @@ const CreateButton = styled(Button)`
 `;
 const JoinRoomContainer = styled.div`
   display: flex;
+  justify-content: center;
   height: 50px;
   margin-bottom: 20px;
 `;

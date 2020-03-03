@@ -22,3 +22,8 @@ export interface User {
   id: string
   color: string
 }
+
+export interface JoinRoomPayload {
+  username: string
+  roomId: string
+}

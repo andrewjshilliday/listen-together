@@ -15,7 +15,7 @@ export interface WebsocketChatMessagePayload {
 }
 
 export interface WebsocketSendActionPayload {
-  sendActionType: WebsocketSendActionType
+  action: WebsocketSendActionType
   data?: any
 }
 

@@ -1,18 +1,29 @@
 import { all, call, fork, put, takeEvery } from 'redux-saga/effects';
-import { RoomActionTypes } from './types';
-import { sendAction, createRoom } from '../websocket';
+import { RoomActionTypes, JoinRoomPayload } from './types';
+import { sendAction, createRoom, joinRoom } from '../websocket';
+import { setUser } from './actions';
 
 function* handleCreateRoom(action: any) {
   yield put(createRoom(action.payload));
 }
 
+function* handleJoinRoom(action: any) {
+  const { username, roomId }: JoinRoomPayload = action.payload;
+  yield put(setUser(username));
+  yield put(joinRoom({ username, roomId }));
+}
+
 function* handleAddToPlaylist(action: any) {
   const item: MusicKit.MediaItem = action.payload;
-  yield put(sendAction({ sendActionType: 'addToPlaylist', data: item }));
+  yield put(sendAction({ action: 'addToPlaylist', data: item }));
 }
 
 function* watchCreateRoom() {
   yield takeEvery(RoomActionTypes.CREATE_ROOM, handleCreateRoom);
+}
+
+function* watchJoinRoom() {
+  yield takeEvery(RoomActionTypes.JOIN_ROOM, handleJoinRoom);
 }
 
 function* watchAddToPlaylist() {
@@ -20,7 +31,7 @@ function* watchAddToPlaylist() {
 }
 
 function* roomSaga() {
-  yield all([fork(watchCreateRoom), fork(watchAddToPlaylist)]);
+  yield all([fork(watchCreateRoom), fork(watchJoinRoom), fork(watchAddToPlaylist)]);
 }
 
 export { roomSaga }

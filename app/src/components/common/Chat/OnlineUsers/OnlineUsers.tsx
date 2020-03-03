@@ -5,7 +5,7 @@ import { ApplicationState } from '../../../../store';
 import styled from 'styled-components';
 
 const OnlineUsers: React.FC = (props: any) => {
-  const users = useSelector((state: ApplicationState) => state.room.users);;
+  const users = useSelector((state: ApplicationState) => state.room.users);
 
   return (
     <OnlineUsersContainer>

@@ -5,7 +5,7 @@ import { WebsocketActionTypes, WebsocketSendActionPayload, WebsocketJoinRoomPayl
 import { ApplicationState } from '..';
 import { musicKitPlay, musicKitPause, musicKitNextTrack, musicKitPreviousTrack, musicKitSeekToTime, musicKitAddToQueue, musicKitSetQueuePosition } from '../musicKit';
 import { recieveMessage } from '../chat';
-import { setRoomId, setPlaylist, setUsersInRoom, User, setPlaybackCountdown } from '../room';
+import { setRoomId, setPlaylist, setUsersInRoom, User, setPlaybackCountdown, RoomActionTypes } from '../room';
 
 function connect() {
   const socket = io(process.env.NODE_ENV === 'production' ? 'https://listen-together-server.herokuapp.com/' : 'localhost:8002');
@@ -22,7 +22,15 @@ function* recieve(socket: SocketIOClient.Socket) {
   while (true) {
     let action = yield take(channel);
     console.log('action', action);
-    yield put(action);
+    switch (action.type) {
+      case RoomActionTypes.SET_USERSINROOM:
+        const currentUsername = yield select((state: ApplicationState) => state.room.username);
+        yield put(setUsersInRoom(action.payload.filter((user: User) => user.name !== currentUsername)));
+        break;
+      default:
+        yield put(action);
+        break;
+    }
   }
 }
 
@@ -30,9 +38,9 @@ export function* subscribe(socket: SocketIOClient.Socket) {
   const currentUsername = yield select((state: ApplicationState) => state.room.username);
   const currentPlaybackCountdown = yield select((state: ApplicationState) => state.room.playbackCountdown);
   return eventChannel(emit => {
-    const onAction = ({ sendActionType, data }: WebsocketSendActionPayload) => {
-      console.log('onaction', sendActionType, data);
-      switch (sendActionType) {
+    const onAction = ({ action: actionType, data }: WebsocketSendActionPayload) => {
+      console.log('onaction', actionType, data);
+      switch (actionType) {
         case 'play':
           return emit(musicKitPlay());
         case 'pause':
@@ -51,8 +59,8 @@ export function* subscribe(socket: SocketIOClient.Socket) {
       emit(recieveMessage(message));
     };
     const onRoomData = ({ room, users }: any) => {
-      console.log(users.filter((user: User) => user.name !== currentUsername));
-      emit(setUsersInRoom(users.filter((user: User) => user.name !== currentUsername)));
+      console.log(users);
+      emit(setUsersInRoom(users));
     };
     const onPlaybackInfo = async ({ action, username, data }: any) => {
       if (action === 'request' && username !== currentUsername) {
@@ -67,7 +75,6 @@ export function* subscribe(socket: SocketIOClient.Socket) {
         });
       }
       if (action === 'send' && username === currentUsername ) {
-
         if (data.queuePosition) {
           emit(musicKitSetQueuePosition(data.queuePosition));
         }
@@ -96,7 +103,7 @@ export function* subscribe(socket: SocketIOClient.Socket) {
 }
 
 function handleSendChatMessage(socket: SocketIOClient.Socket, action: any) {
-  const { message } = action.payload;
+  const message = action.payload;
   socket.emit('sendMessage', { message: message }, ({ error }: any) => {
     if (error) {
       console.log(error);
@@ -105,8 +112,8 @@ function handleSendChatMessage(socket: SocketIOClient.Socket, action: any) {
 }
 
 function handleSendAction(socket: SocketIOClient.Socket, action: any) {
-  const { sendActionType, data }: WebsocketSendActionPayload = action.payload;
-  socket.emit('sendAction', { action: sendActionType, data: data }, ({ error }: any) => {
+  const { action: actionType, data }: WebsocketSendActionPayload = action.payload;
+  socket.emit('sendAction', { action: actionType, data: data }, ({ error }: any) => {
     if (error) {
       console.log(error);
     }
@@ -128,7 +135,6 @@ function* handleCreateRoom(socket: SocketIOClient.Socket, action: any) {
         return;
       }
       yield put(setRoomId(roomId));
-      /* callback(roomId); */
     }
   } finally {
     if (yield cancelled()) createRoomChannel.close();
