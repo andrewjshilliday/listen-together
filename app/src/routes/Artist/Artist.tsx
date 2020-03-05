@@ -98,25 +98,15 @@ const Artist: React.FC = (props: any) => {
   return (
     <ArtistContainer>
       <h1 className="text-truncate">{artist.attributes.name}</h1>
-      <div className="container-fluid" id="image">
-        <div className="artist-image">
-          <img className="img-fluid rounded-circle" src={artistImage !== '' ? artistImage : require("../../assets/images/placeholder.jpeg")} />
-        </div>
-        {/* <div *ngIf="playerService.artist && playerService.artist.relationships.albums.data && playerService.artist.relationships.albums.data | albumFilter : 'latestRelease'" class="latest">
-          <h5 class="text-truncate" title="Latest Release">Latest Release</h5>
-          <app-media-item-view [item]="playerService.artist.relationships.albums.data | albumFilter : 'latestRelease'"></app-media-item-view>
-        </div>
-        <div *ngIf="playerService.artist && playerService.artist.relationships.albums.data && playerService.artist.relationships.albums.data | albumFilter : 'upcomingRelease'" class="upcoming">
-          <h5 class="text-truncate" title="Upcoming Release">Upcoming Release</h5>
-          <app-media-item-view [item]="playerService.artist.relationships.albums.data | albumFilter : 'upcomingRelease'"></app-media-item-view>
-        </div> */}
-      </div>
-      { <MediaItemCardCarousel items={albums} title="Albums"></MediaItemCardCarousel> }
-      { <MediaItemCardCarousel items={singles} title="EPs & Singles"></MediaItemCardCarousel> }
-      { <MediaItemCardCarousel items={liveAlbums} title="Live Albums"></MediaItemCardCarousel> }
-      { <MediaItemCardCarousel items={compilations} title="Compilations"></MediaItemCardCarousel> }
-      { <MediaItemCardCarousel items={appearsOn} title="Appears On"></MediaItemCardCarousel> }
-      { <MediaItemCardCarousel items={playlists} title="Playlists"></MediaItemCardCarousel> }
+      <HeaderContainer>
+        <ArtistImage src={artistImage !== '' ? artistImage : require("../../assets/images/placeholder.jpeg")} />
+      </HeaderContainer>
+      <MediaItemCardCarousel items={albums} title="Albums"></MediaItemCardCarousel>
+      {singles.length > 0 && <MediaItemCardCarousel items={singles} title="EPs & Singles"></MediaItemCardCarousel>}
+      {liveAlbums.length > 0 && <MediaItemCardCarousel items={liveAlbums} title="Live Albums"></MediaItemCardCarousel>}
+      {compilations.length > 0 && <MediaItemCardCarousel items={compilations} title="Compilations"></MediaItemCardCarousel>}
+      {appearsOn.length > 0 && <MediaItemCardCarousel items={appearsOn} title="Appears On"></MediaItemCardCarousel>}
+      {playlists.length > 0 && <MediaItemCardCarousel items={playlists} title="Playlists"></MediaItemCardCarousel>}
     </ArtistContainer>
   );
 }
@@ -125,3 +115,10 @@ export default Artist;
 
 
 const ArtistContainer = styled.div``;
+const HeaderContainer = styled.div`
+  padding: 0 3em 1em;
+`;
+const ArtistImage = styled.img`
+  border-radius: 50%;
+  height: 20em;
+`;
