@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="sc-AxjAm fuPtXB"
+>
+  <span>
+    Other people in this room
+  </span>
+  <div
+    className="sc-AxirZ eLtbJv"
+  >
+    <span
+      className="ant-avatar sc-AxiKw hiMjsU ant-avatar-lg ant-avatar-circle"
+      color="#cfcfcf"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      style={Object {}}
+    >
+      <span
+        className="ant-avatar-string"
+        style={
+          Object {
+            "opacity": 0,
+          }
+        }
+      >
+        user1
+      </span>
+    </span>
+    <span
+      className="ant-avatar sc-AxiKw hiMjsU ant-avatar-lg ant-avatar-circle"
+      color="#cfcfcf"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      style={Object {}}
+    >
+      <span
+        className="ant-avatar-string"
+        style={
+          Object {
+            "opacity": 0,
+          }
+        }
+      >
+        user2
+      </span>
+    </span>
+  </div>
+</div>
+`;
