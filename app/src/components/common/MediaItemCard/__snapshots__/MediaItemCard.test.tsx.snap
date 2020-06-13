@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="sc-AxjAm dYpDUQ"
+>
+  <a
+    href="/album/1447538299"
+    onClick={[Function]}
+  >
+    <img
+      alt="This Land"
+      className="img-fluid rounded"
+    />
+    <span
+      className="text-truncate"
+    >
+      This Land
+    </span>
+  </a>
+  <a
+    href="/artist/266463936"
+    onClick={[Function]}
+  >
+    <span
+      className="text-truncate"
+    >
+      Gary Clark Jr.
+    </span>
+  </a>
+</div>
+`;

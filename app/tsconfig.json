@@ -18,11 +18,16 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
+    "types": ["node", "jest"],
     "typeRoots": [
       "./src/types"
     ]
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "test.tsx",
+    "**/*.spec.tsx"
   ]
 }
