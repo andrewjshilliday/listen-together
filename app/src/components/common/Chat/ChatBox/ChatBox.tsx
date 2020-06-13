@@ -38,7 +38,6 @@ const ChatBox: React.FC = (props: any) => {
   return (
     <ChatBoxContainer>
       <OnlineUsers />
-      {/* {roomProvider.users.length > 0 && } */}
       <MessagesContainer ref={messagesContainer}>
         <StyledScrollbar>
           {chatProvider.messages.map((message, i) => <Message key={i} message={message} name={roomProvider.username ?? ''}/>)}

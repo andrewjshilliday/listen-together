@@ -11,10 +11,10 @@ interface RoomProviderState {
 }
 
 interface IActions {
-  createUser: (name: string) => void
-  addToPlaylist: (item: MusicKit.MediaItem) => void
-  createRoom: (callback: any) => void
-  joinRoom: (id: string, callback: any) => void
+  createUser: Function
+  addToPlaylist: Function
+  createRoom: Function
+  joinRoom: Function
 }
 
 interface User {

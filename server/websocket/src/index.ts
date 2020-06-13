@@ -127,7 +127,7 @@ io.on('connect', (socket) => {
     if (user) {
       const usersInRoom = getUsersInRoom(user.room.id);
 
-      io.to(user.room.id).emit('roomData', { room: user.room.id, users: usersInRoom});
+      io.to(user.room.id).emit('roomData', { room: user.room.id, users: usersInRoom });
 
       if (!usersInRoom || usersInRoom.length === 0) {
         console.log('room removed', user.room.id);

@@ -62,7 +62,7 @@ const MediaItemCardCarousel: React.FC<MediaItemCardCarouselProps> = ({ items, ti
               <MediaItemCard key={item.id} item={item}></MediaItemCard>
             ))
             :
-            Array.from(new Array(3)).map((_, i) => (
+            Array.from(new Array(5)).map((_, i) => (
               <Box key={i} width="16.667%" style={{ margin: '0 10px', borderRadius: '0.5em' }}>
                 <Skeleton variant="rect" width="100%" style={{ paddingBottom: '100%', marginBottom: 4, borderRadius: '0.5em' }} />
                 <Skeleton variant="rect" width="100%" height={20} style={{ marginBottom: 4, borderRadius: '0.5em' }} />

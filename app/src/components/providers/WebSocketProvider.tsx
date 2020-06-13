@@ -7,8 +7,8 @@ export interface WebSocketProviderState {
 }
 
 interface IActions {
-  sendAction: (action: string, data?: any) => void
-  sendMessage: (message: string) => void
+  sendAction: Function
+  sendMessage: Function
 }
 
 export const WebSocketContext = createContext({} as WebSocketProviderState);

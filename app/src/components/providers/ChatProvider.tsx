@@ -10,9 +10,9 @@ export interface ChatProviderState {
 }
 
 interface IActions {
-  sendMessage: (message: string) => void
-  setPopoverChatBoxVisibility: (visible: boolean) => void
-  setPopoverChatIconVisibility: (visible: boolean) => void
+  sendMessage: Function
+  setPopoverChatBoxVisibility: Function
+  setPopoverChatIconVisibility: Function
 }
 
 interface Message {

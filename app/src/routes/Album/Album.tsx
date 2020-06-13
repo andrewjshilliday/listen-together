@@ -61,7 +61,7 @@ const Album: React.FC = (props: any) => {
       }
   
       const albumData = await ListenTogetherApiService.Album(id);
-      if (!albumData.resources.data.relationships.listenersAlsoBought) { return; }
+      if (!albumData?.resources.data.relationships.listenersAlsoBought) { return; }
   
       const relatedAlbumsIds = albumData.resources.data.relationships.listenersAlsoBought.data.map((i: any) => i.id);
       MusicKitApiService.Albums(relatedAlbumsIds).then (res => {

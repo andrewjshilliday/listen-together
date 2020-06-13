@@ -44,6 +44,10 @@ declare namespace MusicKit {
      */
     readonly attributes: any;
     /**
+     * The href object for the media item.
+     */
+    readonly href: string;
+    /**
      * A string containing the content rating for the media item.
      */
     readonly contentRating: string;

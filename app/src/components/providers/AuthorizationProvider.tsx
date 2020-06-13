@@ -7,8 +7,8 @@ interface AuthorizationProviderState {
 }
 
 interface IActions {
-  signIn: () => void
-  signOut: () => void
+  signIn: Function
+  signOut: Function
 }
 
 const AuthorizationContext = createContext({} as AuthorizationProviderState);

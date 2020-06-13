@@ -14,11 +14,11 @@ interface MusicKitProviderState {
 }
 
 interface IActions {
-  play: () => void
-  pause: () => void
-  next: () => void
-  previous: () => void
-  setVolume: (v: number | number[]) => void
+  play: Function
+  pause: Function
+  next: Function
+  previous: Function
+  setVolume: Function
 }
 
 interface MusicKitProviderProps {
