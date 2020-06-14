@@ -1,14 +1,15 @@
 import React from 'react';
-import { StaticRouter } from 'react-router'
+import { StaticRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
-import MediaItemCard from './MediaItemCard';
+import NowPlaying from './NowPlaying';
 
 jest.mock('../../../services/MusicKit');
+jest.mock('../../providers/MusicKitProvider', () => require('../../../__mocks__/providers/MusicKitProvider.mock').default);
 
 it('renders correctly', () => {
   const tree = renderer.create(
     <StaticRouter location=".">
-      <MediaItemCard item={require('../../../__mocks__/objects/Album.mock').default} />
+      <NowPlaying />
     </StaticRouter>).toJSON();
   expect(tree).toMatchSnapshot();
 });

@@ -1,0 +1,209 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="sc-AxjAm jmalSx"
+>
+  <div
+    className="sc-AxirZ gxnMoX"
+  >
+    <a
+      href="/album/undefined"
+      onClick={[Function]}
+    >
+      <img
+        alt="This Land"
+        className="sc-AxiKw hLDHux rounded"
+      />
+    </a>
+    <div
+      className="sc-AxhCb iXIybJ"
+    >
+      <span
+        className="text-truncate"
+      >
+        This Land
+      </span>
+      <a
+        href="/album/undefined"
+        onClick={[Function]}
+      >
+        <span
+          className="text-truncate"
+        >
+          This Land
+        </span>
+      </a>
+      <a
+        href="/artist/undefined"
+        onClick={[Function]}
+      >
+        <span
+          className="text-truncate"
+        >
+          Gary Clark Jr.
+        </span>
+      </a>
+    </div>
+  </div>
+  <div
+    className="sc-AxhUy dyydcY"
+  >
+    <div
+      className="sc-AxgMl hbtauS"
+    >
+      <div
+        className="sc-fzoLsD itBCDF"
+      >
+        <i
+          className="fas fa-redo"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="sc-AxmLO hDKKzl"
+      >
+        <i
+          className="fas fa-backward"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="sc-AxheI exHRBg"
+      >
+        <i
+          className="fas fa-pause"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="sc-fzozJi bwYmJg"
+      >
+        <i
+          className="fas fa-forward"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="sc-fzpans ezaWQt"
+      >
+        <i
+          className="fas fa-random"
+          onClick={[Function]}
+        />
+      </div>
+    </div>
+    <div
+      className="sc-fzplWN dAveBb"
+    >
+      <span
+        className="sc-fznyAO bqCRiV"
+      >
+        00:00
+      </span>
+      <span
+        className="MuiSlider-root MuiSlider-colorPrimary"
+        onMouseDown={[Function]}
+      >
+        <span
+          className="MuiSlider-rail"
+        />
+        <span
+          className="MuiSlider-track"
+          style={
+            Object {
+              "left": "0%",
+              "width": "0%",
+            }
+          }
+        />
+        <input
+          type="hidden"
+          value="0"
+        />
+        <span
+          aria-orientation="horizontal"
+          aria-valuemax={100}
+          aria-valuemin={0}
+          aria-valuenow={0}
+          className="MuiSlider-thumb MuiSlider-thumbColorPrimary"
+          data-index={0}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          role="slider"
+          style={
+            Object {
+              "left": "0%",
+            }
+          }
+          tabIndex={0}
+        />
+      </span>
+      <span
+        className="sc-fznyAO sc-fznKkj hMvlIi"
+      >
+        -
+        1:00
+      </span>
+    </div>
+  </div>
+  <div
+    className="sc-fznZeY sJXdW"
+  >
+    <div
+      className="sc-fzokOt geWHSN"
+    >
+      <i
+        className="fas fa-volume-down"
+      />
+      <span
+        className="MuiSlider-root MuiSlider-colorPrimary"
+        onMouseDown={[Function]}
+      >
+        <span
+          className="MuiSlider-rail"
+        />
+        <span
+          className="MuiSlider-track"
+          style={
+            Object {
+              "left": "0%",
+              "width": "100%",
+            }
+          }
+        />
+        <input
+          type="hidden"
+          value="1"
+        />
+        <span
+          aria-orientation="horizontal"
+          aria-valuemax={1}
+          aria-valuemin={0}
+          aria-valuenow={1}
+          className="MuiSlider-thumb MuiSlider-thumbColorPrimary"
+          data-index={0}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          role="slider"
+          style={
+            Object {
+              "left": "100%",
+            }
+          }
+          tabIndex={0}
+        />
+      </span>
+      <i
+        className="fas fa-volume-up"
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,1001 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="sc-AxjAm StDqN"
+>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <span
+      className="sc-AxhCb bDqOP text-truncate"
+    >
+      This Land
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      5:41
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <span
+      className="sc-AxhCb bDqOP text-truncate"
+    >
+      What About Us
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      4:30
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <span
+      className="sc-AxhCb bDqOP text-truncate"
+    >
+      I Got My Eyes on You (Locked & Loaded)
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      5:11
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <span
+      className="sc-AxhCb bDqOP text-truncate"
+    >
+      I Walk Alone
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      3:44
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <span
+      className="sc-AxhCb bDqOP text-truncate"
+    >
+      Feelin' Like a Million
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      3:34
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <span
+      className="sc-AxhCb bDqOP text-truncate"
+    >
+      Gotta Get Into Something
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      3:04
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <span
+      className="sc-AxhCb bDqOP text-truncate"
+    >
+      Got to Get Up
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      2:37
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <span
+      className="sc-AxhCb bDqOP text-truncate"
+    >
+      Feed the Babies
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      4:46
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <span
+      className="sc-AxhCb bDqOP text-truncate"
+    >
+      Pearl Cadillac
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      5:05
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <span
+      className="sc-AxhCb bDqOP text-truncate"
+    >
+      When I'm Gone
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      3:48
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <span
+      className="sc-AxhCb bDqOP text-truncate"
+    >
+      The Guitar Man
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      4:26
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <span
+      className="sc-AxhCb bDqOP text-truncate"
+    >
+      Low Down Rolling Stone
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      4:18
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <span
+      className="sc-AxhCb bDqOP text-truncate"
+    >
+      The Governor
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      2:21
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <span
+      className="sc-AxhCb bDqOP text-truncate"
+    >
+      Don't Wait Til Tomorrow
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      4:05
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <span
+      className="sc-AxhCb bDqOP text-truncate"
+    >
+      Dirty Dishes Blues
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      5:03
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <span
+      className="sc-AxhCb bDqOP text-truncate"
+    >
+      Highway 71 (Bonus Track)
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      3:31
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <span
+      className="sc-AxhCb bDqOP text-truncate"
+    >
+      Did Dat (Bonus Track)
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      6:42
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders correctly with artwork, artist and album 1`] = `
+<div
+  className="sc-AxjAm StDqN"
+>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <img
+      alt="This Land"
+      className="img-fluid rounded"
+    />
+    <span
+      className="sc-AxhCb iZNYZP text-truncate"
+    >
+      This Land
+    </span>
+    <span
+      className="sc-AxhUy jSOFHT text-truncate"
+    >
+      Gary Clark Jr.
+    </span>
+    <span
+      className="sc-AxgMl bflOSJ track-album text-truncate"
+    >
+      This Land
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      5:41
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <img
+      alt="What About Us"
+      className="img-fluid rounded"
+    />
+    <span
+      className="sc-AxhCb iZNYZP text-truncate"
+    >
+      What About Us
+    </span>
+    <span
+      className="sc-AxhUy jSOFHT text-truncate"
+    >
+      Gary Clark Jr.
+    </span>
+    <span
+      className="sc-AxgMl bflOSJ track-album text-truncate"
+    >
+      This Land
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      4:30
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <img
+      alt="I Got My Eyes on You (Locked & Loaded)"
+      className="img-fluid rounded"
+    />
+    <span
+      className="sc-AxhCb iZNYZP text-truncate"
+    >
+      I Got My Eyes on You (Locked & Loaded)
+    </span>
+    <span
+      className="sc-AxhUy jSOFHT text-truncate"
+    >
+      Gary Clark Jr.
+    </span>
+    <span
+      className="sc-AxgMl bflOSJ track-album text-truncate"
+    >
+      This Land
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      5:11
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <img
+      alt="I Walk Alone"
+      className="img-fluid rounded"
+    />
+    <span
+      className="sc-AxhCb iZNYZP text-truncate"
+    >
+      I Walk Alone
+    </span>
+    <span
+      className="sc-AxhUy jSOFHT text-truncate"
+    >
+      Gary Clark Jr.
+    </span>
+    <span
+      className="sc-AxgMl bflOSJ track-album text-truncate"
+    >
+      This Land
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      3:44
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <img
+      alt="Feelin' Like a Million"
+      className="img-fluid rounded"
+    />
+    <span
+      className="sc-AxhCb iZNYZP text-truncate"
+    >
+      Feelin' Like a Million
+    </span>
+    <span
+      className="sc-AxhUy jSOFHT text-truncate"
+    >
+      Gary Clark Jr.
+    </span>
+    <span
+      className="sc-AxgMl bflOSJ track-album text-truncate"
+    >
+      This Land
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      3:34
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <img
+      alt="Gotta Get Into Something"
+      className="img-fluid rounded"
+    />
+    <span
+      className="sc-AxhCb iZNYZP text-truncate"
+    >
+      Gotta Get Into Something
+    </span>
+    <span
+      className="sc-AxhUy jSOFHT text-truncate"
+    >
+      Gary Clark Jr.
+    </span>
+    <span
+      className="sc-AxgMl bflOSJ track-album text-truncate"
+    >
+      This Land
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      3:04
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <img
+      alt="Got to Get Up"
+      className="img-fluid rounded"
+    />
+    <span
+      className="sc-AxhCb iZNYZP text-truncate"
+    >
+      Got to Get Up
+    </span>
+    <span
+      className="sc-AxhUy jSOFHT text-truncate"
+    >
+      Gary Clark Jr.
+    </span>
+    <span
+      className="sc-AxgMl bflOSJ track-album text-truncate"
+    >
+      This Land
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      2:37
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <img
+      alt="Feed the Babies"
+      className="img-fluid rounded"
+    />
+    <span
+      className="sc-AxhCb iZNYZP text-truncate"
+    >
+      Feed the Babies
+    </span>
+    <span
+      className="sc-AxhUy jSOFHT text-truncate"
+    >
+      Gary Clark Jr.
+    </span>
+    <span
+      className="sc-AxgMl bflOSJ track-album text-truncate"
+    >
+      This Land
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      4:46
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <img
+      alt="Pearl Cadillac"
+      className="img-fluid rounded"
+    />
+    <span
+      className="sc-AxhCb iZNYZP text-truncate"
+    >
+      Pearl Cadillac
+    </span>
+    <span
+      className="sc-AxhUy jSOFHT text-truncate"
+    >
+      Gary Clark Jr.
+    </span>
+    <span
+      className="sc-AxgMl bflOSJ track-album text-truncate"
+    >
+      This Land
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      5:05
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <img
+      alt="When I'm Gone"
+      className="img-fluid rounded"
+    />
+    <span
+      className="sc-AxhCb iZNYZP text-truncate"
+    >
+      When I'm Gone
+    </span>
+    <span
+      className="sc-AxhUy jSOFHT text-truncate"
+    >
+      Gary Clark Jr.
+    </span>
+    <span
+      className="sc-AxgMl bflOSJ track-album text-truncate"
+    >
+      This Land
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      3:48
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <img
+      alt="The Guitar Man"
+      className="img-fluid rounded"
+    />
+    <span
+      className="sc-AxhCb iZNYZP text-truncate"
+    >
+      The Guitar Man
+    </span>
+    <span
+      className="sc-AxhUy jSOFHT text-truncate"
+    >
+      Gary Clark Jr.
+    </span>
+    <span
+      className="sc-AxgMl bflOSJ track-album text-truncate"
+    >
+      This Land
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      4:26
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <img
+      alt="Low Down Rolling Stone"
+      className="img-fluid rounded"
+    />
+    <span
+      className="sc-AxhCb iZNYZP text-truncate"
+    >
+      Low Down Rolling Stone
+    </span>
+    <span
+      className="sc-AxhUy jSOFHT text-truncate"
+    >
+      Gary Clark Jr.
+    </span>
+    <span
+      className="sc-AxgMl bflOSJ track-album text-truncate"
+    >
+      This Land
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      4:18
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <img
+      alt="The Governor"
+      className="img-fluid rounded"
+    />
+    <span
+      className="sc-AxhCb iZNYZP text-truncate"
+    >
+      The Governor
+    </span>
+    <span
+      className="sc-AxhUy jSOFHT text-truncate"
+    >
+      Gary Clark Jr.
+    </span>
+    <span
+      className="sc-AxgMl bflOSJ track-album text-truncate"
+    >
+      This Land
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      2:21
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <img
+      alt="Don't Wait Til Tomorrow"
+      className="img-fluid rounded"
+    />
+    <span
+      className="sc-AxhCb iZNYZP text-truncate"
+    >
+      Don't Wait Til Tomorrow
+    </span>
+    <span
+      className="sc-AxhUy jSOFHT text-truncate"
+    >
+      Gary Clark Jr.
+    </span>
+    <span
+      className="sc-AxgMl bflOSJ track-album text-truncate"
+    >
+      This Land
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      4:05
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <img
+      alt="Dirty Dishes Blues"
+      className="img-fluid rounded"
+    />
+    <span
+      className="sc-AxhCb iZNYZP text-truncate"
+    >
+      Dirty Dishes Blues
+    </span>
+    <span
+      className="sc-AxhUy jSOFHT text-truncate"
+    >
+      Gary Clark Jr.
+    </span>
+    <span
+      className="sc-AxgMl bflOSJ track-album text-truncate"
+    >
+      This Land
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      5:03
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <img
+      alt="Highway 71 (Bonus Track)"
+      className="img-fluid rounded"
+    />
+    <span
+      className="sc-AxhCb iZNYZP text-truncate"
+    >
+      Highway 71 (Bonus Track)
+    </span>
+    <span
+      className="sc-AxhUy jSOFHT text-truncate"
+    >
+      Gary Clark Jr.
+    </span>
+    <span
+      className="sc-AxgMl bflOSJ track-album text-truncate"
+    >
+      This Land
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      3:31
+    </span>
+  </div>
+  <div
+    className="sc-AxirZ iZnMCv"
+  >
+    <div
+      className="sc-AxiKw jNumRE"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </div>
+    <img
+      alt="Did Dat (Bonus Track)"
+      className="img-fluid rounded"
+    />
+    <span
+      className="sc-AxhCb iZNYZP text-truncate"
+    >
+      Did Dat (Bonus Track)
+    </span>
+    <span
+      className="sc-AxhUy jSOFHT text-truncate"
+    >
+      Gary Clark Jr.
+    </span>
+    <span
+      className="sc-AxgMl bflOSJ track-album text-truncate"
+    >
+      This Land
+    </span>
+    <span
+      className="sc-AxheI TytHM track-duration"
+    >
+      6:42
+    </span>
+  </div>
+</div>
+`;

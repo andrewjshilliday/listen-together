@@ -1,0 +1,904 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="sc-fzoiQi jkvegY"
+>
+  <div
+    className="sc-fzqARJ lnyOvm"
+  >
+    <div
+      className="sc-fzqNqU bhkQpa"
+    >
+      <div
+        className="sc-fzoyTs iVKUqR"
+      >
+        <img
+          alt="This Land"
+          className="img-fluid rounded"
+        />
+        <p>
+          17
+           Songs, 
+          1 Hour 13 Minutes
+        </p>
+        <hr />
+        <div
+          className="sc-fzoNJl jdzzfG"
+        >
+          <span
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "We’re calling it: In the rock ’n’ roll history books, Gary Clark Jr. will have two eras: before <i>This Land</i> and after it.<br />
+Just get a load of the fire and fury that opens the title track: “F**k you, I’m America’s son/This is where I come from,” he snarls. Clark’s rage is partially directed at his racist neighbour in Austin, Texas, who can’t seem to accept Clark’s sprawling 50-acre ranch, as well as a few experiences from his childhood. “I had a few situations down there with some racism, and some Confederate flags, and people calling me out of their trucks, all that kind of stuff,” he told Beats 1 host Zane Lowe. “I had a beat that I laid down but didn't have any lyrics over it and it just came to me. I just went in there and fired off.” But it's also, more broadly, aimed at President Trump for fanning the flames of racism across the American South. He’s pissed off, and finally speaking out.<br />
+<i>This Land</i>, which Clark produced himself, confronts these realities head-on, including stressful community divisions (“What About Us”), touring fatigue (“The Guitar Man”) and political activism (“Feed the Babies”). In an effort to find some common ground, he reminds us why we came to his music in the first place: its soulful, spontaneous spirit. The rallying <i>wooo</i>s and rip-roaring guitars on the standout “Gotta Get Into Something” recall Stiff Little Fingers as much as they do Chuck Berry. And like any rousing punk anthem, it’s its own form of protest song: a thunderous, gritty alarm that dares you to sit still.",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="sc-fzoXWK fniOzM"
+    >
+      <div
+        className="sc-fzpmMD eWMA-di"
+      >
+        <h1
+          className="text-truncate"
+        >
+          This Land
+        </h1>
+        <div
+          className="sc-fznMAR iKwQaO"
+        >
+          <a
+            href="/artist/266463936"
+            onClick={[Function]}
+          >
+            <h2
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </h2>
+          </a>
+          <h2>
+             | 
+            Rock
+          </h2>
+        </div>
+      </div>
+      <div
+        className="sc-AxheI fniENP"
+      >
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi kXLUYR text-truncate"
+          >
+            This Land
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            5:41
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi kXLUYR text-truncate"
+          >
+            What About Us
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            4:30
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi kXLUYR text-truncate"
+          >
+            I Got My Eyes on You (Locked & Loaded)
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            5:11
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi kXLUYR text-truncate"
+          >
+            I Walk Alone
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            3:44
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi kXLUYR text-truncate"
+          >
+            Feelin' Like a Million
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            3:34
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi kXLUYR text-truncate"
+          >
+            Gotta Get Into Something
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            3:04
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi kXLUYR text-truncate"
+          >
+            Got to Get Up
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            2:37
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi kXLUYR text-truncate"
+          >
+            Feed the Babies
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            4:46
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi kXLUYR text-truncate"
+          >
+            Pearl Cadillac
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            5:05
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi kXLUYR text-truncate"
+          >
+            When I'm Gone
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            3:48
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi kXLUYR text-truncate"
+          >
+            The Guitar Man
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            4:26
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi kXLUYR text-truncate"
+          >
+            Low Down Rolling Stone
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            4:18
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi kXLUYR text-truncate"
+          >
+            The Governor
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            2:21
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi kXLUYR text-truncate"
+          >
+            Don't Wait Til Tomorrow
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            4:05
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi kXLUYR text-truncate"
+          >
+            Dirty Dishes Blues
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            5:03
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi kXLUYR text-truncate"
+          >
+            Highway 71 (Bonus Track)
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            3:31
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi kXLUYR text-truncate"
+          >
+            Did Dat (Bonus Track)
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            6:42
+          </span>
+        </div>
+      </div>
+      <p
+        className="sc-fznxKY jWZJuF"
+      >
+        Released: 
+        Friday, February 22, 2019
+         
+        <br />
+        Warner Records
+         | 
+        ℗ 2019 Warner Records Inc.
+      </p>
+    </div>
+  </div>
+  <div
+    className="sc-fznWOq eUIqzb"
+  >
+    <div
+      className="sc-AxirZ fJUMyY"
+    >
+      <h2>
+        More By Gary Clark Jr.
+      </h2>
+      <div
+        className="sc-AxiKw enaPwj"
+      >
+        <div
+          className="sc-AxhCb iEIFwb"
+          onClick={[Function]}
+        />
+        <div
+          className="sc-AxgMl eFueIV"
+        >
+          <div
+            className="sc-AxjAm dYpDUQ"
+          >
+            <a
+              href="/album/1447538299"
+              onClick={[Function]}
+            >
+              <img
+                alt="This Land"
+                className="img-fluid rounded"
+              />
+              <span
+                className="text-truncate"
+              >
+                This Land
+              </span>
+            </a>
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </div>
+          <div
+            className="sc-AxjAm dYpDUQ"
+          >
+            <a
+              href="/album/1022109426"
+              onClick={[Function]}
+            >
+              <img
+                alt="The Story of Sonny Boy Slim"
+                className="img-fluid rounded"
+              />
+              <span
+                className="text-truncate"
+              >
+                The Story of Sonny Boy Slim
+              </span>
+            </a>
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </div>
+          <div
+            className="sc-AxjAm dYpDUQ"
+          >
+            <a
+              href="/album/906127510"
+              onClick={[Function]}
+            >
+              <img
+                alt="Gary Clark Jr. Live"
+                className="img-fluid rounded"
+              />
+              <span
+                className="text-truncate"
+              >
+                Gary Clark Jr. Live
+              </span>
+            </a>
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </div>
+          <div
+            className="sc-AxjAm dYpDUQ"
+          >
+            <a
+              href="/album/560639480"
+              onClick={[Function]}
+            >
+              <img
+                alt="Blak and Blu"
+                className="img-fluid rounded"
+              />
+              <span
+                className="text-truncate"
+              >
+                Blak and Blu
+              </span>
+            </a>
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </div>
+          <div
+            className="sc-AxjAm dYpDUQ"
+          >
+            <a
+              href="/album/1200488004"
+              onClick={[Function]}
+            >
+              <img
+                alt="Live North America 2016"
+                className="img-fluid rounded"
+              />
+              <span
+                className="text-truncate"
+              >
+                Live North America 2016
+              </span>
+            </a>
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </div>
+          <div
+            className="sc-AxjAm dYpDUQ"
+          >
+            <a
+              href="/album/560652745"
+              onClick={[Function]}
+            >
+              <img
+                alt="Blak and Blu (Deluxe Version)"
+                className="img-fluid rounded"
+              />
+              <span
+                className="text-truncate"
+              >
+                Blak and Blu (Deluxe Version)
+              </span>
+            </a>
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </div>
+          <div
+            className="sc-AxjAm dYpDUQ"
+          >
+            <a
+              href="/album/455141519"
+              onClick={[Function]}
+            >
+              <img
+                alt="The Bright Lights - EP"
+                className="img-fluid rounded"
+              />
+              <span
+                className="text-truncate"
+              >
+                The Bright Lights - EP
+              </span>
+            </a>
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </div>
+          <div
+            className="sc-AxjAm dYpDUQ"
+          >
+            <a
+              href="/album/626872587"
+              onClick={[Function]}
+            >
+              <img
+                alt="iTunes Session"
+                className="img-fluid rounded"
+              />
+              <span
+                className="text-truncate"
+              >
+                iTunes Session
+              </span>
+            </a>
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </div>
+          <div
+            className="sc-AxjAm dYpDUQ"
+          >
+            <a
+              href="/album/1494805000"
+              onClick={[Function]}
+            >
+              <img
+                alt="This Land (Remix) [From the Tonight Show Starring Jimmy Fallon] [feat. Black Thought] - Single"
+                className="img-fluid rounded"
+              />
+              <span
+                className="text-truncate"
+              >
+                This Land (Remix) [From the Tonight Show Starring Jimmy Fallon] [feat. Black Thought] - Single
+              </span>
+            </a>
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr. & The Roots
+            </span>
+          </div>
+          <div
+            className="sc-AxjAm dYpDUQ"
+          >
+            <a
+              href="/album/1490025532"
+              onClick={[Function]}
+            >
+              <img
+                alt="Pearl Cadillac (feat. Andra Day) - Single"
+                className="img-fluid rounded"
+              />
+              <span
+                className="text-truncate"
+              >
+                Pearl Cadillac (feat. Andra Day) - Single
+              </span>
+            </a>
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </div>
+          <div
+            className="sc-AxjAm dYpDUQ"
+          >
+            <a
+              href="/album/1476285802"
+              onClick={[Function]}
+            >
+              <img
+                alt="Buddha (feat. Gary Clark Jr.) - Single"
+                className="img-fluid rounded"
+              />
+              <span
+                className="text-truncate"
+              >
+                Buddha (feat. Gary Clark Jr.) - Single
+              </span>
+            </a>
+            <span
+              className="text-truncate"
+            >
+              Macy Gray
+            </span>
+          </div>
+          <div
+            className="sc-AxjAm dYpDUQ"
+          >
+            <a
+              href="/album/1458664025"
+              onClick={[Function]}
+            >
+              <img
+                alt="Can't Stop the Bleeding (feat. Gary Clark Jr. & Gramatik) - Single"
+                className="img-fluid rounded"
+              />
+              <span
+                className="text-truncate"
+              >
+                Can't Stop the Bleeding (feat. Gary Clark Jr. & Gramatik) - Single
+              </span>
+            </a>
+            <span
+              className="text-truncate"
+            >
+              Tom Morello
+            </span>
+          </div>
+          <div
+            className="sc-AxjAm dYpDUQ"
+          >
+            <a
+              href="/album/1447106653"
+              onClick={[Function]}
+            >
+              <img
+                alt="This Land - Single"
+                className="img-fluid rounded"
+              />
+              <span
+                className="text-truncate"
+              >
+                This Land - Single
+              </span>
+            </a>
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </div>
+          <div
+            className="sc-AxjAm dYpDUQ"
+          >
+            <a
+              href="/album/1420363046"
+              onClick={[Function]}
+            >
+              <img
+                alt="While My Guitar Gently Weeps Live (feat. Gary Clark Jr.) [Live] - Single"
+                className="img-fluid rounded"
+              />
+              <span
+                className="text-truncate"
+              >
+                While My Guitar Gently Weeps Live (feat. Gary Clark Jr.) [Live] - Single
+              </span>
+            </a>
+            <span
+              className="text-truncate"
+            >
+              Will Taylor and Strings Attached
+            </span>
+          </div>
+          <div
+            className="sc-AxjAm dYpDUQ"
+          >
+            <a
+              href="/album/1279718975"
+              onClick={[Function]}
+            >
+              <img
+                alt="Come Together - Single"
+                className="img-fluid rounded"
+              />
+              <span
+                className="text-truncate"
+              >
+                Come Together - Single
+              </span>
+            </a>
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr. & Junkie XL
+            </span>
+          </div>
+          <div
+            className="sc-AxjAm dYpDUQ"
+          >
+            <a
+              href="/album/1148774607"
+              onClick={[Function]}
+            >
+              <img
+                alt="Take Me Down - Single"
+                className="img-fluid rounded"
+              />
+              <span
+                className="text-truncate"
+              >
+                Take Me Down - Single
+              </span>
+            </a>
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </div>
+          <div
+            className="sc-AxjAm dYpDUQ"
+          >
+            <a
+              href="/album/1129970027"
+              onClick={[Function]}
+            >
+              <img
+                alt="Jam in the Van - Gary Clark Jr. - EP"
+                className="img-fluid rounded"
+              />
+              <span
+                className="text-truncate"
+              >
+                Jam in the Van - Gary Clark Jr. - EP
+              </span>
+            </a>
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr. & Jam in the Van
+            </span>
+          </div>
+          <div
+            className="sc-AxjAm dYpDUQ"
+          >
+            <a
+              href="/album/562514719"
+              onClick={[Function]}
+            >
+              <img
+                alt="Ain't Messin 'Round - Single"
+                className="img-fluid rounded"
+              />
+              <span
+                className="text-truncate"
+              >
+                Ain't Messin 'Round - Single
+              </span>
+            </a>
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </div>
+        </div>
+        <div
+          className="sc-AxhCb sc-AxhUy ixXRnl"
+          onClick={[Function]}
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

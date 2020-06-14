@@ -25,7 +25,7 @@ exports[`renders correctly 1`] = `
           }
         }
       >
-        user1
+        user0
       </span>
     </span>
     <span
@@ -43,7 +43,7 @@ exports[`renders correctly 1`] = `
           }
         }
       >
-        user2
+        user1
       </span>
     </span>
   </div>

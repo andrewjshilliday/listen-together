@@ -18,6 +18,7 @@ const MediaItemCardCarousel: React.FC<MediaItemCardCarouselProps> = ({ items, ti
   const rightIconRef = createRef<HTMLDivElement>();
 
   useEffect(() => {
+    if (!leftIconRef.current || !rightIconRef.current) { return; }
     leftDisabled() ? leftIconRef.current!.classList.add('disabled') : leftIconRef.current!.classList.remove('disabled');
     rightDisabled() ? rightIconRef.current!.classList.add('disabled') : rightIconRef.current!.classList.remove('disabled');
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -44,11 +45,11 @@ const MediaItemCardCarousel: React.FC<MediaItemCardCarouselProps> = ({ items, ti
   }
 
   const leftDisabled = () => {
-    return rowRef.current!.scrollLeft === 0;
+    return rowRef.current?.scrollLeft === 0;
   }
 
   const rightDisabled = () => {
-    return (rowRef.current!.lastChild as HTMLElement).offsetLeft < rowRef.current!.scrollLeft + rowRef.current!.offsetWidth;
+    return (rowRef.current?.lastChild as HTMLElement)?.offsetLeft < rowRef.current!.scrollLeft + rowRef.current!.offsetWidth;
   }
 
   return (

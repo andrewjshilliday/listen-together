@@ -1,13 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import OnlineUsers from './OnlineUsers';
-import { useRoom } from '../../../providers'
 
-jest.mock('../../../providers/RoomProvider', () => ({
-  useRoom: () => ({
-    users: ['user1', 'user2'].map((user, index) => ({ name: user, id: index.toString(), color: '#cfcfcf' }))
-  })
-}));
+jest.mock('../../../providers/RoomProvider', () => require('../../../../__mocks__/providers/RoomProvider.mock').default);
 
 it('renders correctly', () => {
   const tree = renderer.create(<OnlineUsers />).toJSON();

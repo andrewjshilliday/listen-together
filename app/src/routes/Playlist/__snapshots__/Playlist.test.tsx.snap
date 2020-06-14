@@ -1,0 +1,651 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="sc-fzoiQi jkvegY"
+>
+  <div
+    className="sc-fzqARJ lnyOvm"
+  >
+    <div
+      className="sc-fzqNqU fuEiiX"
+    >
+      <div
+        className="sc-fzoyTs iVKUqR"
+      >
+        <img
+          alt="Gary Clark Jr. Essentials"
+          className="img-fluid rounded"
+        />
+        <p>
+          17
+           Songs, 
+          1 Hour 25 Minutes
+        </p>
+      </div>
+    </div>
+    <div
+      className="sc-fzoXWK fniOzM"
+    >
+      <div
+        className="sc-fzpmMD eWMA-di"
+      >
+        <h1
+          className="text-truncate"
+        >
+          Gary Clark Jr. Essentials
+        </h1>
+        <div
+          className="sc-fznxKY jzQXIe"
+        >
+          <h2
+            className="text-truncate"
+          >
+            Apple Music Blues
+          </h2>
+          <h2
+            title="08/07/2019 23:38:54"
+          >
+             | Last Modified: 
+            a year ago
+          </h2>
+        </div>
+      </div>
+      <div
+        className="sc-AxheI fniENP"
+      >
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi hQGPdZ text-truncate"
+          >
+            Got to Get Up
+          </span>
+          <span
+            className="sc-fzoLsD gfgwZO text-truncate"
+          >
+            Gary Clark Jr.
+          </span>
+          <span
+            className="sc-fzpans iAAgBG track-album text-truncate"
+          >
+            This Land
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            2:37
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi hQGPdZ text-truncate"
+          >
+            Bright Lights
+          </span>
+          <span
+            className="sc-fzoLsD gfgwZO text-truncate"
+          >
+            Gary Clark Jr.
+          </span>
+          <span
+            className="sc-fzpans iAAgBG track-album text-truncate"
+          >
+            Blak and Blu (Deluxe Version)
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            5:24
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi hQGPdZ text-truncate"
+          >
+            Things Are Changin' (Live) [Solo Acoustic]
+          </span>
+          <span
+            className="sc-fzoLsD gfgwZO text-truncate"
+          >
+            Gary Clark Jr.
+          </span>
+          <span
+            className="sc-fzpans iAAgBG track-album text-truncate"
+          >
+            The Bright Lights - EP
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            4:31
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi hQGPdZ text-truncate"
+          >
+            Grinder
+          </span>
+          <span
+            className="sc-fzoLsD gfgwZO text-truncate"
+          >
+            Gary Clark Jr.
+          </span>
+          <span
+            className="sc-fzpans iAAgBG track-album text-truncate"
+          >
+            The Story of Sonny Boy Slim
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            3:22
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi hQGPdZ text-truncate"
+          >
+            This Land
+          </span>
+          <span
+            className="sc-fzoLsD gfgwZO text-truncate"
+          >
+            Gary Clark Jr.
+          </span>
+          <span
+            className="sc-fzpans iAAgBG track-album text-truncate"
+          >
+            This Land
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            5:41
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi hQGPdZ text-truncate"
+          >
+            Don't Owe You a Thang
+          </span>
+          <span
+            className="sc-fzoLsD gfgwZO text-truncate"
+          >
+            Gary Clark Jr.
+          </span>
+          <span
+            className="sc-fzpans iAAgBG track-album text-truncate"
+          >
+            The Bright Lights - EP
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            3:35
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi hQGPdZ text-truncate"
+          >
+            Numb
+          </span>
+          <span
+            className="sc-fzoLsD gfgwZO text-truncate"
+          >
+            Gary Clark Jr.
+          </span>
+          <span
+            className="sc-fzpans iAAgBG track-album text-truncate"
+          >
+            Blak and Blu (Deluxe Version)
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            5:26
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi hQGPdZ text-truncate"
+          >
+            Our Love (Live)
+          </span>
+          <span
+            className="sc-fzoLsD gfgwZO text-truncate"
+          >
+            Gary Clark Jr.
+          </span>
+          <span
+            className="sc-fzpans iAAgBG track-album text-truncate"
+          >
+            Live North America 2016
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            7:50
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi hQGPdZ text-truncate"
+          >
+            The Healing
+          </span>
+          <span
+            className="sc-fzoLsD gfgwZO text-truncate"
+          >
+            Gary Clark Jr.
+          </span>
+          <span
+            className="sc-fzpans iAAgBG track-album text-truncate"
+          >
+            The Story of Sonny Boy Slim
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            4:48
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi hQGPdZ text-truncate"
+          >
+            Catfish Blues (Live)
+          </span>
+          <span
+            className="sc-fzoLsD gfgwZO text-truncate"
+          >
+            Gary Clark Jr.
+          </span>
+          <span
+            className="sc-fzpans iAAgBG track-album text-truncate"
+          >
+            Gary Clark Jr. Live
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            8:00
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi hQGPdZ text-truncate"
+          >
+            When My Train Pulls In
+          </span>
+          <span
+            className="sc-fzoLsD gfgwZO text-truncate"
+          >
+            Gary Clark Jr.
+          </span>
+          <span
+            className="sc-fzpans iAAgBG track-album text-truncate"
+          >
+            Blak and Blu (Deluxe Version)
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            7:45
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi hQGPdZ text-truncate"
+          >
+            Ain't Messin 'Round
+          </span>
+          <span
+            className="sc-fzoLsD gfgwZO text-truncate"
+          >
+            Gary Clark Jr.
+          </span>
+          <span
+            className="sc-fzpans iAAgBG track-album text-truncate"
+          >
+            Blak and Blu (Deluxe Version)
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            4:09
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi hQGPdZ text-truncate"
+          >
+            Please Come Home
+          </span>
+          <span
+            className="sc-fzoLsD gfgwZO text-truncate"
+          >
+            Gary Clark Jr.
+          </span>
+          <span
+            className="sc-fzpans iAAgBG track-album text-truncate"
+          >
+            Blak and Blu (Deluxe Version)
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            4:16
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi hQGPdZ text-truncate"
+          >
+            Church
+          </span>
+          <span
+            className="sc-fzoLsD gfgwZO text-truncate"
+          >
+            Gary Clark Jr.
+          </span>
+          <span
+            className="sc-fzpans iAAgBG track-album text-truncate"
+          >
+            The Story of Sonny Boy Slim
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            5:10
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi hQGPdZ text-truncate"
+          >
+            Take Me Down
+          </span>
+          <span
+            className="sc-fzoLsD gfgwZO text-truncate"
+          >
+            Gary Clark Jr.
+          </span>
+          <span
+            className="sc-fzpans iAAgBG track-album text-truncate"
+          >
+            Take Me Down - Single
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            4:47
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi hQGPdZ text-truncate"
+          >
+            Travis County
+          </span>
+          <span
+            className="sc-fzoLsD gfgwZO text-truncate"
+          >
+            Gary Clark Jr.
+          </span>
+          <span
+            className="sc-fzpans iAAgBG track-album text-truncate"
+          >
+            Blak and Blu (Deluxe Version)
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            3:38
+          </span>
+        </div>
+        <div
+          className="sc-Axmtr cffNzl"
+        >
+          <div
+            className="sc-AxmLO eHiwgP"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-plus"
+            />
+          </div>
+          <span
+            className="sc-fzozJi hQGPdZ text-truncate"
+          >
+            Next Door Neighbor Blues (Live)
+          </span>
+          <span
+            className="sc-fzoLsD gfgwZO text-truncate"
+          >
+            Gary Clark Jr.
+          </span>
+          <span
+            className="sc-fzpans iAAgBG track-album text-truncate"
+          >
+            Gary Clark Jr. Live
+          </span>
+          <span
+            className="sc-fzplWN eXRBjQ track-duration"
+          >
+            4:06
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-fznMAR MCjQk"
+  >
+    <div
+      className="sc-AxirZ fJUMyY"
+    >
+      <h2>
+        Featured Artists
+      </h2>
+      <div
+        className="sc-AxiKw enaPwj"
+      >
+        <div
+          className="sc-AxhCb iEIFwb"
+          onClick={[Function]}
+        />
+        <div
+          className="sc-AxgMl eFueIV"
+        >
+          <div
+            className="sc-AxjAm dYpDUQ"
+          >
+            <a
+              href="/artist/266463936"
+              onClick={[Function]}
+            >
+              <img
+                alt="Gary Clark Jr."
+                className="img-fluid rounded"
+                src="placeholder.jpeg"
+              />
+              <span
+                className="text-truncate"
+              >
+                Gary Clark Jr.
+              </span>
+            </a>
+          </div>
+        </div>
+        <div
+          className="sc-AxhCb sc-AxhUy ixXRnl"
+          onClick={[Function]}
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

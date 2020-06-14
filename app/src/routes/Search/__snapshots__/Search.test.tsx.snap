@@ -1,0 +1,403 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="sc-fzoiQi jkvegY"
+>
+  <h1>
+    Search - 
+    gary clark jr
+  </h1>
+  <div
+    className="sc-AxirZ fJUMyY"
+  >
+    <h2>
+      Artists
+    </h2>
+    <div
+      className="sc-AxiKw enaPwj"
+    >
+      <div
+        className="sc-AxhCb iEIFwb"
+        onClick={[Function]}
+      />
+      <div
+        className="sc-AxgMl eFueIV"
+      >
+        <div
+          className="sc-AxjAm dYpDUQ"
+        >
+          <a
+            href="/artist/266463936"
+            onClick={[Function]}
+          >
+            <img
+              alt="Gary Clark Jr."
+              className="img-fluid rounded"
+              src="placeholder.jpeg"
+            />
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </a>
+        </div>
+      </div>
+      <div
+        className="sc-AxhCb sc-AxhUy ixXRnl"
+        onClick={[Function]}
+      />
+    </div>
+  </div>
+  <div
+    className="sc-AxirZ fJUMyY"
+  >
+    <h2>
+      Albums
+    </h2>
+    <div
+      className="sc-AxiKw enaPwj"
+    >
+      <div
+        className="sc-AxhCb iEIFwb"
+        onClick={[Function]}
+      />
+      <div
+        className="sc-AxgMl eFueIV"
+      >
+        <div
+          className="sc-AxjAm dYpDUQ"
+        >
+          <a
+            href="/album/1447538299"
+            onClick={[Function]}
+          >
+            <img
+              alt="This Land"
+              className="img-fluid rounded"
+            />
+            <span
+              className="text-truncate"
+            >
+              This Land
+            </span>
+          </a>
+          <a
+            href="/artist/266463936"
+            onClick={[Function]}
+          >
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </a>
+        </div>
+        <div
+          className="sc-AxjAm dYpDUQ"
+        >
+          <a
+            href="/album/906127510"
+            onClick={[Function]}
+          >
+            <img
+              alt="Gary Clark Jr. Live"
+              className="img-fluid rounded"
+            />
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr. Live
+            </span>
+          </a>
+          <a
+            href="/artist/266463936"
+            onClick={[Function]}
+          >
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </a>
+        </div>
+        <div
+          className="sc-AxjAm dYpDUQ"
+        >
+          <a
+            href="/album/1022109426"
+            onClick={[Function]}
+          >
+            <img
+              alt="The Story of Sonny Boy Slim"
+              className="img-fluid rounded"
+            />
+            <span
+              className="text-truncate"
+            >
+              The Story of Sonny Boy Slim
+            </span>
+          </a>
+          <a
+            href="/artist/266463936"
+            onClick={[Function]}
+          >
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </a>
+        </div>
+        <div
+          className="sc-AxjAm dYpDUQ"
+        >
+          <a
+            href="/album/560639480"
+            onClick={[Function]}
+          >
+            <img
+              alt="Blak and Blu"
+              className="img-fluid rounded"
+            />
+            <span
+              className="text-truncate"
+            >
+              Blak and Blu
+            </span>
+          </a>
+          <a
+            href="/artist/266463936"
+            onClick={[Function]}
+          >
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </a>
+        </div>
+        <div
+          className="sc-AxjAm dYpDUQ"
+        >
+          <a
+            href="/album/1200488004"
+            onClick={[Function]}
+          >
+            <img
+              alt="Live North America 2016"
+              className="img-fluid rounded"
+            />
+            <span
+              className="text-truncate"
+            >
+              Live North America 2016
+            </span>
+          </a>
+          <a
+            href="/artist/266463936"
+            onClick={[Function]}
+          >
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </a>
+        </div>
+        <div
+          className="sc-AxjAm dYpDUQ"
+        >
+          <a
+            href="/album/455141519"
+            onClick={[Function]}
+          >
+            <img
+              alt="The Bright Lights - EP"
+              className="img-fluid rounded"
+            />
+            <span
+              className="text-truncate"
+            >
+              The Bright Lights - EP
+            </span>
+          </a>
+          <a
+            href="/artist/266463936"
+            onClick={[Function]}
+          >
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </a>
+        </div>
+        <div
+          className="sc-AxjAm dYpDUQ"
+        >
+          <a
+            href="/album/560652745"
+            onClick={[Function]}
+          >
+            <img
+              alt="Blak and Blu (Deluxe Version)"
+              className="img-fluid rounded"
+            />
+            <span
+              className="text-truncate"
+            >
+              Blak and Blu (Deluxe Version)
+            </span>
+          </a>
+          <a
+            href="/artist/266463936"
+            onClick={[Function]}
+          >
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </a>
+        </div>
+        <div
+          className="sc-AxjAm dYpDUQ"
+        >
+          <a
+            href="/album/626872587"
+            onClick={[Function]}
+          >
+            <img
+              alt="iTunes Session"
+              className="img-fluid rounded"
+            />
+            <span
+              className="text-truncate"
+            >
+              iTunes Session
+            </span>
+          </a>
+          <a
+            href="/artist/266463936"
+            onClick={[Function]}
+          >
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr.
+            </span>
+          </a>
+        </div>
+        <div
+          className="sc-AxjAm dYpDUQ"
+        >
+          <a
+            href="/album/1279718975"
+            onClick={[Function]}
+          >
+            <img
+              alt="Come Together - Single"
+              className="img-fluid rounded"
+            />
+            <span
+              className="text-truncate"
+            >
+              Come Together - Single
+            </span>
+          </a>
+          <a
+            href="/artist/266463936"
+            onClick={[Function]}
+          >
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr. & Junkie XL
+            </span>
+          </a>
+        </div>
+        <div
+          className="sc-AxjAm dYpDUQ"
+        >
+          <a
+            href="/album/1494805000"
+            onClick={[Function]}
+          >
+            <img
+              alt="This Land (Remix) [From the Tonight Show Starring Jimmy Fallon] [feat. Black Thought] - Single"
+              className="img-fluid rounded"
+            />
+            <span
+              className="text-truncate"
+            >
+              This Land (Remix) [From the Tonight Show Starring Jimmy Fallon] [feat. Black Thought] - Single
+            </span>
+          </a>
+          <a
+            href="/artist/266463936"
+            onClick={[Function]}
+          >
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr. & The Roots
+            </span>
+          </a>
+        </div>
+      </div>
+      <div
+        className="sc-AxhCb sc-AxhUy ixXRnl"
+        onClick={[Function]}
+      />
+    </div>
+  </div>
+  <div
+    className="sc-AxirZ fJUMyY"
+  >
+    <h2>
+      Playlists
+    </h2>
+    <div
+      className="sc-AxiKw enaPwj"
+    >
+      <div
+        className="sc-AxhCb iEIFwb"
+        onClick={[Function]}
+      />
+      <div
+        className="sc-AxgMl eFueIV"
+      >
+        <div
+          className="sc-AxjAm dYpDUQ"
+        >
+          <a
+            href="/playlist/pl.a5ef67f3dde74a568e583ac9f0406d50"
+            onClick={[Function]}
+          >
+            <img
+              alt="Gary Clark Jr. Essentials"
+              className="img-fluid rounded"
+            />
+            <span
+              className="text-truncate"
+            >
+              Gary Clark Jr. Essentials
+            </span>
+          </a>
+          <span
+            className="text-truncate"
+          >
+            Apple Music Blues
+          </span>
+        </div>
+      </div>
+      <div
+        className="sc-AxhCb sc-AxhUy ixXRnl"
+        onClick={[Function]}
+      />
+    </div>
+  </div>
+</div>
+`;

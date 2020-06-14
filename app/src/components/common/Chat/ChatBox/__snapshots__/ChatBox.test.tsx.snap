@@ -8,8 +8,48 @@ exports[`renders correctly 1`] = `
     className="sc-fzoLag dEeiVn"
   >
     <span>
-      Looks like you're on your own here!
+      Other people in this room
     </span>
+    <div
+      className="sc-fzoXzr hKLohU"
+    >
+      <span
+        className="ant-avatar sc-fzpjYC jMLubc ant-avatar-lg ant-avatar-circle"
+        color="#cfcfcf"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        style={Object {}}
+      >
+        <span
+          className="ant-avatar-string"
+          style={
+            Object {
+              "opacity": 0,
+            }
+          }
+        >
+          user0
+        </span>
+      </span>
+      <span
+        className="ant-avatar sc-fzpjYC jMLubc ant-avatar-lg ant-avatar-circle"
+        color="#cfcfcf"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        style={Object {}}
+      >
+        <span
+          className="ant-avatar-string"
+          style={
+            Object {
+              "opacity": 0,
+            }
+          }
+        >
+          user1
+        </span>
+      </span>
+    </div>
   </div>
   <div
     className="sc-fznJRM cCzPPj"
@@ -39,7 +79,32 @@ exports[`renders correctly 1`] = `
             "top": 0,
           }
         }
-      />
+      >
+        <div
+          className="sc-fzokOt dOcJyC"
+        >
+          <div
+            className="sc-fzqBZW dzlRTO"
+          >
+            user0
+          </div>
+          <div
+            className="sc-fzqNJr fijRxk"
+          />
+        </div>
+        <div
+          className="sc-fzokOt dOcJyC"
+        >
+          <div
+            className="sc-fzqBZW dzlRTO"
+          >
+            user1
+          </div>
+          <div
+            className="sc-fzqNJr fijRxk"
+          />
+        </div>
+      </div>
       <div
         style={
           Object {
@@ -159,6 +224,9 @@ exports[`renders correctly 1`] = `
                 />
               </svg>
             </span>
+            <span
+              className="MuiTouchRipple-root"
+            />
           </button>
         </div>
       </div>

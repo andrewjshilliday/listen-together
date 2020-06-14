@@ -1,14 +1,14 @@
 import React from 'react';
-import { StaticRouter } from 'react-router'
+import { StaticRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
-import MediaItemCard from './MediaItemCard';
+import RoomBar from './RoomBar';
 
-jest.mock('../../../services/MusicKit');
+jest.mock('../../providers/RoomProvider', () => require('../../../__mocks__/providers/RoomProvider.mock').default);
 
 it('renders correctly', () => {
   const tree = renderer.create(
     <StaticRouter location=".">
-      <MediaItemCard item={require('../../../__mocks__/objects/Album.mock').default} />
+      <RoomBar />
     </StaticRouter>).toJSON();
   expect(tree).toMatchSnapshot();
 });

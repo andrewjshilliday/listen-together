@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="sc-AxjAm GaNVe"
+>
+  <img
+    alt="This Land"
+    className="img-fluid rounded"
+  />
+  <div
+    className="sc-AxirZ iXMdxL"
+  >
+    <span
+      className="text-truncate"
+    >
+      This Land
+    </span>
+    <span
+      className="text-truncate"
+    />
+    <span
+      className="text-truncate"
+    >
+      Gary Clark Jr.
+    </span>
+  </div>
+</div>
+`;

@@ -4,7 +4,6 @@ import { Button, TextField, InputAdornment, IconButton } from '@material-ui/core
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { useRoom, useAuthorization } from '../../components/providers';
 import styled from 'styled-components';
-import { CSSTransition } from 'react-transition-group';
 import musicSvg from '../../assets/images/listen-together.svg';
 
 const Home: React.FC = (props: any) => {
@@ -45,13 +44,11 @@ const Home: React.FC = (props: any) => {
     <HomeContainer>
       <Title>ListenTogether</Title>
       <ListenTogetherImage src={musicSvg} />
-      <CSSTransition in={!authProvider.authorized} classNames="fade" timeout={300} unmountOnExit>
+      { !authProvider.authorized ?
         <FadeInContainer>
-            <h4>To use this application, connect to your Apple Music account</h4>
+          <h4>To use this application, connect to your Apple Music account</h4>
           <Button variant="outlined" color="primary" onClick={() => authProvider.actions.signIn()}>Connect to Apple Music</Button>
-        </FadeInContainer>
-      </CSSTransition>
-      <CSSTransition in={authProvider.authorized} classNames="fade" timeout={300} unmountOnExit>
+        </FadeInContainer> :
         <FadeInContainer>
           <UsernameContainer disabled={roomProvider.username != null}>
             <h2>First, Pick a Username</h2>
@@ -81,7 +78,7 @@ const Home: React.FC = (props: any) => {
             </JoinRoomContainer>
           </RoomChoicesContainer>
         </FadeInContainer>
-      </CSSTransition>
+      }
     </HomeContainer>
   );
 }
@@ -105,7 +102,6 @@ const FadeInContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* margin: auto; */
   height: 340px;
   transition: opacity 300ms ease-in;
   &.fade-enter { opacity: 0; }
