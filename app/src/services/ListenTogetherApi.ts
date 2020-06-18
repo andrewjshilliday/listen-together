@@ -59,7 +59,7 @@ const Albums = async (ids: string[]): Promise<any[]> => {
 }
 
 const GeniusSong = async (artist: string, song: string, includeLyrics?: boolean): Promise<any> => {
-  const url = `${LISTEN_TOGETHER_API}/v1/catalog/${MusicKit.getInstance().storefrontId}/songs`;
+  const url = `${LISTEN_TOGETHER_API}/genius/song`;
   let params: MusicKit.QueryParameters = {
     artist: artist,
     song: song,
@@ -67,7 +67,7 @@ const GeniusSong = async (artist: string, song: string, includeLyrics?: boolean)
   }
 
   const resp = await axios.get(url, { params: params });
-  return resp.data.data;
+  return resp.data.song;
 }
 
 export const ListenTogetherApiService: ListenTogetherApiService = {

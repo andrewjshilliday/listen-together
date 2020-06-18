@@ -1,10 +1,12 @@
 import React, { createContext, useContext, useEffect, useReducer, useRef } from 'react'
 import { useMusicKit, useWebSocket } from '../providers';
+import { ListenTogetherApiService } from '../../services';
 
 interface RoomProviderState {
   roomId?: string
   username?: string
   playlist: MusicKit.MediaItem[]
+  currentSong: any
   users: User[]
   playbackCountdown?: number
   actions: IActions
@@ -28,6 +30,7 @@ const RoomContext = createContext({} as RoomProviderState)
 const initState: RoomProviderState = {
   playlist: [],
   users: [],
+  currentSong: null,
   actions: {
     createUser: () => {},
     addToPlaylist: () => {},
@@ -96,6 +99,20 @@ export const RoomProvider = (props: any) => {
   useEffect(() => {
     stateRef.current = state;
   }, [state]);
+
+  useEffect(() => {
+    const retrieveSong = async () => {
+      const song = await ListenTogetherApiService.GeniusSong(
+        musicKitProvider.nowPlayingItem!.artistName,
+        musicKitProvider.nowPlayingItem!.attributes.name,
+        true);
+      
+      setState({ ...state, currentSong: song });
+    }
+    
+    if (musicKitProvider.nowPlayingItem) { retrieveSong(); }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [musicKitProvider.nowPlayingItem])
 
   useEffect(() => {
     setState({
