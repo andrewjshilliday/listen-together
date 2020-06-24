@@ -1,5 +1,4 @@
 import React, { ReactNode, createContext, useContext } from 'react'
-import { Secrets } from '../../secrets';
 import { WebSocketContext } from './WebSocketProvider';
 declare const MusicKit: any;
 
