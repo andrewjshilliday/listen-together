@@ -1,6 +1,6 @@
 import axios from 'axios';
 declare const MusicKit: any;
-const LISTEN_TOGETHER_API = 'http://localhost:8003';
+const LISTEN_TOGETHER_API = process.env.REACT_APP_LISTEN_TOGETHER_API_URL;
 
 type types = 'songs' | 'artists' | 'albums' | 'playlists';
 
