@@ -35,7 +35,7 @@ export class MusicKitProvider extends React.Component<MusicKitProviderProps, Mus
     super(props);
 
     MusicKit.configure({
-      developerToken: Secrets.appleMusicDevToken,
+      developerToken: process.env.REACT_APP_MUSICKIT_TOKEN,
       app: {
         name: 'ListenTogether',
         build: '0.1',
@@ -127,18 +127,13 @@ export class MusicKitProvider extends React.Component<MusicKitProviderProps, Mus
   }
 
   setVolume = (volume: number | number[]) => {
-    const audio: any = document.getElementById('apple-music-player');
-    if (audio) {
-      audio.volume = volume;
-      localStorage.setItem('volume', volume.toString());
-    }
+    this.state.musicKit.player.volume = volume;
+    localStorage.setItem('volume', volume.toString());
   }
 
   mediaItemDidChange = (event: any) => {
     console.log(`mediaItemDidChange`);
-    this.setState({
-      nowPlayingItem: event.item
-    });
+    this.setState({ nowPlayingItem: event.item });
   }
 
   playbackStateDidChange = (event: any) => {

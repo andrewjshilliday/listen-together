@@ -32,8 +32,7 @@ export const WebSocketProvider = (props: any) => {
   };
 
   const [state] = useState({ 
-    // socket: io('https://listen-together-server.herokuapp.com/'),
-    socket: io('localhost:8002'),
+    socket: io(process.env.REACT_APP_SOCKETIO_URL!.toString()),
     actions: {
       sendAction: sendAction,
       sendMessage: sendMessage
