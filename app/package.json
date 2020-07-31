@@ -3,22 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.10.1",
+    "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.55",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "@types/jest": "^24.9.1",
-    "@types/node": "^12.12.47",
-    "@types/react": "^16.9.41",
+    "@types/node": "^12.12.53",
+    "@types/react": "^16.9.43",
     "@types/react-custom-scrollbars": "^4.0.6",
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.5",
     "@types/react-test-renderer": "^16.9.2",
     "@types/react-transition-group": "^4.4.0",
     "@types/socket.io-client": "^1.4.33",
-    "@types/styled-components": "^5.1.0",
+    "@types/styled-components": "^5.1.1",
     "antd": "^3.26.18",
     "axios": "^0.19.2",
     "moment": "^2.27.0",
@@ -35,7 +35,7 @@
     "socket.io-client": "^2.3.0",
     "styled-components": "^5.1.1",
     "tslint": "^5.20.1",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.7"
   },
   "devDependencies": {
     "musickit-typescript": "^1.2.4"
