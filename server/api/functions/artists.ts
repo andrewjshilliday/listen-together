@@ -24,9 +24,7 @@ export const artists: APIGatewayProxyHandler = async (event, _context): Promise<
 const sendRes = (status: number, body: string): APIGatewayProxyResult => {
   return {
     statusCode: status,
-    headers: { 
-      "Access-Control-Allow-Origin": "*" 
-    },
+    headers: { 'Access-Control-Allow-Origin': '*' },
     body: body
   };
 }
