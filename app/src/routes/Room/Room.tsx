@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Scrollbars } from 'react-custom-scrollbars';
 import { useRoom, useChat } from '../../components/providers';
 import { QueueMediaItemView, ChatBox } from '../../components/common';
 import styled from 'styled-components';
@@ -19,20 +20,23 @@ const Room: React.FC = (props: any) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [roomProvider.roomId]);
-
-  useEffect(() => {
-    console.log(roomProvider.playlist);
-  }, [roomProvider.playlist]);
   
   return (
     <>
       <Header>Room {props.match.params.id} User {roomProvider.username}</Header>
       <RoomContainer>
-        <QueueContainer>
-          {roomProvider.playlist.map((item: MusicKit.MediaItem, index: number) => (
-            <QueueMediaItemView key={item.id} item={item} index={index}></QueueMediaItemView>
-          ))}
-        </QueueContainer>
+        <StyledQueue>
+          <QueueContainer>
+            {roomProvider.playlist.map((item: MusicKit.MediaItem, index: number) => (
+              <QueueMediaItemView key={item.id} item={item} index={index}></QueueMediaItemView>
+            ))}
+          </QueueContainer>
+          {roomProvider.currentSong?.lyrics &&
+            <LyricsContainer>
+              <h2>{roomProvider.currentSong.title} Lyrics</h2>
+              <pre>{roomProvider.currentSong.lyrics}</pre>
+            </LyricsContainer>}
+        </StyledQueue>
         <ChatContainer>
           <ChatBox></ChatBox>
         </ChatContainer>
@@ -49,8 +53,22 @@ const RoomContainer = styled.div`
   display: flex;
   height: calc(100% - 44px);
 `;
-const QueueContainer = styled.div`
+const StyledQueue = styled.div`
   width: 60%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+`;
+const QueueContainer = styled(Scrollbars)``;
+const LyricsContainer = styled(Scrollbars)`
+  max-height: 40%;
+  margin: 1em 0;
+  h2, pre { margin: 0 1rem; }
+  h2 {
+    position: sticky;
+    top: 0;
+    background: white;
+  }
 `;
 const ChatContainer = styled.div`
   width: 40%;
