@@ -31,21 +31,21 @@ const NowPlaying: React.FC = (props: any) => {
           </NowPlayingInfoContainer>
           <MediaControlsContainer>
             <MediaControlsButtonContainer>
-              {musicKitProvider.musicKit.player.repeatMode === 0 && <RepeatIcon repeatMode={musicKitProvider.musicKit.player.repeatMode}><i className="fas fa-redo" onClick={() => {return}}></i></RepeatIcon>}
+              {/* {musicKitProvider.musicKit.player.repeatMode === 0 && <RepeatIcon repeatMode={musicKitProvider.musicKit.player.repeatMode}><i className="fas fa-redo" onClick={() => {return}}></i></RepeatIcon>}
               {musicKitProvider.musicKit.player.repeatMode === 1 && <RepeatIcon repeatMode={musicKitProvider.musicKit.player.repeatMode}><i className="fas fa-redo" onClick={() => {return}}></i></RepeatIcon>}
-              {musicKitProvider.musicKit.player.repeatMode === 2 && <RepeatIcon repeatMode={musicKitProvider.musicKit.player.repeatMode}><i className="fas fa-redo" onClick={() => {return}}></i></RepeatIcon>}
-              <PreviousIcon><i className="fas fa-backward" onClick={() => {return}}></i></PreviousIcon>
+              {musicKitProvider.musicKit.player.repeatMode === 2 && <RepeatIcon repeatMode={musicKitProvider.musicKit.player.repeatMode}><i className="fas fa-redo" onClick={() => {return}}></i></RepeatIcon>} */}
+              <PreviousIcon><i className="fas fa-backward" onClick={() => musicKitProvider.actions.previous()}></i></PreviousIcon>
               <PlayIcon>
                 {!musicKitProvider.isPlaying && !musicKitProvider.playbackLoading && <i className="fas fa-play" onClick={() => musicKitProvider.actions.play()}></i>}
                 {musicKitProvider.isPlaying && !musicKitProvider.playbackLoading && <i className="fas fa-pause" onClick={() => musicKitProvider.actions.pause()}></i>}
-                {musicKitProvider.playbackLoading && <PlaybackLoadingSpinner onClick={() => {return}}></PlaybackLoadingSpinner>}
+                {musicKitProvider.playbackLoading && <PlaybackLoadingSpinner onClick={() => musicKitProvider.actions.stop()}></PlaybackLoadingSpinner>}
               </PlayIcon>
-              <NextIcon><i className="fas fa-forward" onClick={() => {return}}></i></NextIcon>
-              <ShuffleIcon shuffleMode={musicKitProvider.musicKit.player.shuffleMode}><i className="fas fa-random" onClick={() => {return}}></i></ShuffleIcon>
+              <NextIcon><i className="fas fa-forward" onClick={() => musicKitProvider.actions.next()}></i></NextIcon>
+              {/* <ShuffleIcon shuffleMode={musicKitProvider.musicKit.player.shuffleMode}><i className="fas fa-random" onClick={() => {return}}></i></ShuffleIcon> */}
             </MediaControlsButtonContainer>
             <MediaProgressBar>
               <CurrentPlaybackTime>{moment.utc(musicKitProvider.currentPlaybackTime*1000).format('mm:ss')}</CurrentPlaybackTime>
-              <Slider value={musicKitProvider.currentPlaybackTime} onChange={() => {return}} max={musicKitProvider.musicKit.player.currentPlaybackDuration}></Slider>
+              <Slider value={musicKitProvider.currentPlaybackTime} onChangeCommitted={(e, v) => musicKitProvider.actions.seek(v)} max={musicKitProvider.musicKit.player.currentPlaybackDuration}></Slider>
               <CurrentPlaybackDuration>-{moment.utc(musicKitProvider.currentPlaybackTimeRemaining*1000).format('m:ss')}</CurrentPlaybackDuration>
             </MediaProgressBar>
           </MediaControlsContainer>

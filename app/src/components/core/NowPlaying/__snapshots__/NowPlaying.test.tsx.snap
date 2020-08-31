@@ -53,14 +53,6 @@ exports[`renders correctly 1`] = `
       className="sc-AxgMl hbtauS"
     >
       <div
-        className="sc-fzoLsD itBCDF"
-      >
-        <i
-          className="fas fa-redo"
-          onClick={[Function]}
-        />
-      </div>
-      <div
         className="sc-AxmLO hDKKzl"
       >
         <i
@@ -81,14 +73,6 @@ exports[`renders correctly 1`] = `
       >
         <i
           className="fas fa-forward"
-          onClick={[Function]}
-        />
-      </div>
-      <div
-        className="sc-fzpans ezaWQt"
-      >
-        <i
-          className="fas fa-random"
           onClick={[Function]}
         />
       </div>

@@ -15,8 +15,10 @@ interface MusicKitProviderState {
 interface IActions {
   play: Function
   pause: Function
+  stop: Function
   next: Function
   previous: Function
+  seek: Function
   setVolume: Function
 }
 
@@ -51,8 +53,10 @@ export class MusicKitProvider extends React.Component<MusicKitProviderProps, Mus
       actions: {
         play: this.play,
         pause: this.pause,
+        stop: this.stop,
         next: this.next,
         previous: this.previous,
+        seek: this.seek,
         setVolume: this.setVolume
       }
     };
@@ -78,13 +82,16 @@ export class MusicKitProvider extends React.Component<MusicKitProviderProps, Mus
         case 'pause':
           this.state.musicKit.player.pause();
           break;
+        case 'stop':
+          this.state.musicKit.player.stop();
+          break;
         case 'nextTrack':
           this.state.musicKit.player.skipToNextItem();
           break;
         case 'previousTrack':
           this.state.musicKit.player.skipToPreviousItem();
           break;
-        case 'seekToTime':
+        case 'seek':
           this.state.musicKit.player.seekToTime(data);
           break;
       }
@@ -111,6 +118,11 @@ export class MusicKitProvider extends React.Component<MusicKitProviderProps, Mus
     this.context.actions.sendAction('pause');
   }
 
+  stop = () => {
+    console.log('stop');
+    this.context.actions.sendAction('stop');
+  }
+
   next = () => {
     console.log('next');
     this.context.actions.sendAction('nextTrack');
@@ -121,8 +133,13 @@ export class MusicKitProvider extends React.Component<MusicKitProviderProps, Mus
     if (this.state.currentPlaybackTime < 10000) {
       this.context.actions.sendAction('previousTrack');
     } else {
-      this.context.actions.sendAction('seekToTime', 0);
+      this.context.actions.sendAction('seek', 0);
     }
+  }
+
+  seek = (value: number) => {
+    console.log('seek');
+    this.context.actions.sendAction('seek', value);
   }
 
   setVolume = (volume: number | number[]) => {

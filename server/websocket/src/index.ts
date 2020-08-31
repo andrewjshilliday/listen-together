@@ -17,6 +17,7 @@ app.use(router);
 io.on('connect', (socket) => {
 
   socket.on('create', ({ name }, callback) => {
+    console.log(`create room | username ${name}`);
     let room: Room;
     try {
       room = createRoom();
@@ -39,6 +40,7 @@ io.on('connect', (socket) => {
   });
 
   socket.on('join', ({ name, roomId }, callback) => {
+    console.log(`join room | username ${name} | roomid ${roomId}`);
     if (!name) return callback({ error: 'no username supplied' });
     if (!roomId) return callback({ error: 'no roomId supplied' });
 
@@ -65,6 +67,7 @@ io.on('connect', (socket) => {
 
   socket.on('sendAction', ({ action, data }, callback) => {
     const user = getUserById(socket.id);
+    console.log(`send action | actiontype ${action} | roomid ${user.room.id}`);
 
     if (action === 'addToPlaylist' && data && data.id) {
       const room = getRoom(user.room.id);
@@ -80,6 +83,7 @@ io.on('connect', (socket) => {
 
   socket.on('sendMessage', ({ message }, callback) => {
     const user = getUserById(socket.id);
+    console.log(`send message | message ${message} | sending user ${user.name} | roomid ${user.room.id}`);
 
     io.to(user.room.id).emit('message', { user: user.name, text: message });
 
@@ -123,6 +127,8 @@ io.on('connect', (socket) => {
     } catch (error) {
       return;
     }
+
+    console.log(`user disconnected | username ${user.name}`);
 
     if (user) {
       const usersInRoom = getUsersInRoom(user.room.id);
