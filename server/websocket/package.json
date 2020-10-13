@@ -12,7 +12,7 @@
     "anymatch": "^3.1.1",
     "cors": "^2.8.5",
     "debug": "^2.6.9",
-    "dot-prop": "^4.2.1",
+    "dot-prop": "^5.1.1",
     "engine.io-parser": "^2.2.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
