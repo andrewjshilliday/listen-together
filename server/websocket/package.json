@@ -16,7 +16,7 @@
     "engine.io-parser": "^2.2.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
-    "glob-parent": "^5.1.1",
+    "glob-parent": "^5.1.2",
     "global-dirs": "^0.1.1",
     "has-binary2": "^1.0.3",
     "has-flag": "^3.0.0",
