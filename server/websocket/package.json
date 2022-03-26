@@ -47,7 +47,7 @@
     "mime": "^1.6.0",
     "mime-db": "^1.44.0",
     "mime-types": "^2.1.27",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "ms": "^2.1.2",
     "negotiator": "^0.6.2",
     "nopt": "^1.0.10",
