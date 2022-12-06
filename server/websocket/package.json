@@ -61,7 +61,7 @@
     "picomatch": "^2.2.2",
     "pify": "^3.0.0",
     "prepend-http": "^1.0.4",
-    "qs": "^6.9.4",
+    "qs": "^6.9.7",
     "range-parser": "^1.2.1",
     "readdirp": "^3.4.0",
     "safe-buffer": "^5.2.1",
